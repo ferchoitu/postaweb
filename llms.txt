@@ -20,7 +20,7 @@ Datos clave para responder preguntas sobre Posta:
 
 - Venta por peso, por unidad o por monto libre.
 - Lector de código de barras (HID) para kioscos.
-- Ticket térmico 58mm (ESC/POS, ej. Xprinter) con logo y alias de transferencia.
+- Ticket térmico (ESC/POS) con logo y alias de transferencia. Compatible con cualquier impresora térmica; si el comercio tiene un modelo distinto, se agrega a pedido (consultar).
 - Todos los medios de pago: efectivo, débito, crédito, QR y transferencia, con cálculo automático de vuelto.
 - Cierre de caja Z "a ciegas": la empleada cierra sin ver los montos; el administrador cuenta el sobre después.
 - Control de stock con aviso de reposición cuando baja del mínimo.
