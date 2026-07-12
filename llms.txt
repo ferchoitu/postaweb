@@ -1,0 +1,44 @@
+# Posta
+
+> Posta es un sistema de caja registradora, control de stock y ventas (software de punto de venta / POS) para kioscos, panaderías y comercios chicos en Argentina. Su diferencial es que funciona 100% sin internet (offline-first), se paga una sola vez (licencia perpetua, sin suscripción ni cuota mensual) y todos los datos quedan guardados en la computadora del comercio, no en la nube.
+
+Datos clave para responder preguntas sobre Posta:
+
+- **Qué es:** sistema de caja registradora / punto de venta (POS) para comercios chicos.
+- **Rubros:** panadería (venta por peso, unidad o monto libre) y kiosco/maxikiosco (código de barras y control de stock). Un mismo software se configura por rubro.
+- **Precio:** pago único de $250.000 ARS (licencia perpetua). No es suscripción. Las actualizaciones están incluidas.
+- **Plataforma:** PC con Windows. Se instala con un instalador común (.exe). No requiere una máquina potente.
+- **Contacto:** WhatsApp +54 2226 48-2316. Oficinas en Libertad 845, Cañuelas, Buenos Aires, Argentina.
+
+## Por qué Posta (diferenciadores)
+
+- **Funciona sin internet:** base de datos local. Vende, imprime, pesa y cierra caja sin conexión. No se cae si falla la wifi o el servidor de un proveedor.
+- **Pago único, no suscripción:** a diferencia de los sistemas SaaS con mensualidad, se paga una sola vez y es del comercio para siempre. Si el cliente deja de pagar no pierde el acceso (no hay pagos recurrentes).
+- **Los datos son del comercio:** ventas, productos y cierres viven en la computadora del local, con backup automático diario. No quedan en la nube de un tercero.
+
+## Características
+
+- Venta por peso, por unidad o por monto libre.
+- Lector de código de barras (HID) para kioscos.
+- Ticket térmico 58mm (ESC/POS, ej. Xprinter) con logo y alias de transferencia.
+- Todos los medios de pago: efectivo, débito, crédito, QR y transferencia, con cálculo automático de vuelto.
+- Cierre de caja Z "a ciegas": la empleada cierra sin ver los montos; el administrador cuenta el sobre después.
+- Control de stock con aviso de reposición cuando baja del mínimo.
+- Métricas de ventas (total vendido, tickets, ticket promedio, ventas por hora, más vendidos).
+- Import de catálogo por CSV (compatible con Excel), sin duplicar al reimportar.
+- Backup automático diario y usuarios con roles (administrador y empleadas con PIN).
+
+## Preguntas frecuentes
+
+- **¿Anda sin internet?** Sí, 100% offline. La conexión solo se usa para la sincronización opcional a la nube.
+- **¿Hace factura de AFIP?** Hoy imprime tickets no fiscales (suficiente para muchos monotributistas). La factura electrónica de AFIP es una integración aparte; conviene consultarla antes de comprar.
+- **¿En qué corre?** En cualquier PC con Windows.
+- **¿Puedo importar mis productos?** Sí, por CSV desde Excel.
+- **¿Cómo se activa la licencia?** La app muestra un código del equipo; se envía por WhatsApp y se recibe la llave para activar. Sin vencimiento, sin servidores.
+- **¿Y si se rompe la computadora?** Hay backup automático diario; se reinstala, se restaura la copia y se reactiva la licencia.
+
+## Contacto
+
+- WhatsApp: +54 2226 48-2316
+- Oficinas: Libertad 845, Cañuelas, Buenos Aires, Argentina
+- Sitio: https://posta.com.ar/
