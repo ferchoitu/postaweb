@@ -11,4 +11,16 @@
       <image:title>Posta — sistema de caja registradora offline para comercios</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://posta.com.ar/software-para-kioscos</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://posta.com.ar/sistema-de-control-de-stock</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
