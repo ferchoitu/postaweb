@@ -46,4 +46,4 @@ Allow: /
 
 # Sin áreas privadas que bloquear en una landing de una sola página.
 
-Sitemap: https://posta.com.ar/sitemap.xml
+Sitemap: https://postaweb.vercel.app/sitemap.xml

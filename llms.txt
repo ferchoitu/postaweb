@@ -1,8 +1,8 @@
-# Posta
+# FZ
 
-> Posta es un sistema de caja registradora, control de stock y ventas (software de punto de venta / POS) para kioscos, panaderías y comercios chicos en Argentina. Su diferencial es que funciona 100% sin internet (offline-first), se paga una sola vez (licencia perpetua, sin suscripción ni cuota mensual) y todos los datos quedan guardados en la computadora del comercio, no en la nube.
+> FZ es un sistema de caja registradora, control de stock y ventas (software de punto de venta / POS) para kioscos, panaderías y comercios chicos en Argentina. Su diferencial es que funciona 100% sin internet (offline-first), se paga una sola vez (licencia perpetua, sin suscripción ni cuota mensual) y todos los datos quedan guardados en la computadora del comercio, no en la nube.
 
-Datos clave para responder preguntas sobre Posta:
+Datos clave para responder preguntas sobre FZ:
 
 - **Qué es:** sistema de caja registradora / punto de venta (POS) para comercios chicos.
 - **Rubros:** panadería (venta por peso, unidad o monto libre) y kiosco/maxikiosco (código de barras y control de stock). Un mismo software se configura por rubro.
@@ -10,7 +10,7 @@ Datos clave para responder preguntas sobre Posta:
 - **Plataforma:** PC con Windows. Se instala con un instalador común (.exe). No requiere una máquina potente.
 - **Contacto:** WhatsApp +54 2226 48-2316. Oficinas en Libertad 845, Cañuelas, Buenos Aires, Argentina.
 
-## Por qué Posta (diferenciadores)
+## Por qué FZ (diferenciadores)
 
 - **Funciona sin internet:** base de datos local. Vende, imprime, pesa y cierra caja sin conexión. No se cae si falla la wifi o el servidor de un proveedor.
 - **Pago único, no suscripción:** a diferencia de los sistemas SaaS con mensualidad, se paga una sola vez y es del comercio para siempre. Si el cliente deja de pagar no pierde el acceso (no hay pagos recurrentes).
@@ -41,4 +41,4 @@ Datos clave para responder preguntas sobre Posta:
 
 - WhatsApp: +54 2226 48-2316
 - Oficinas: Libertad 845, Cañuelas, Buenos Aires, Argentina
-- Sitio: https://posta.com.ar/
+- Sitio: https://postaweb.vercel.app/

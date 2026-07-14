@@ -1,6 +1,6 @@
 {
-  "name": "Posta — Caja registradora offline",
-  "short_name": "Posta",
+  "name": "FZ — Caja registradora offline",
+  "short_name": "FZ",
   "description": "Sistema de caja, control de stock y ventas offline para kiosco y panadería.",
   "start_url": "/",
   "display": "standalone",
