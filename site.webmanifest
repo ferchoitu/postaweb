@@ -8,6 +8,6 @@
   "theme_color": "#0C5D7A",
   "lang": "es-AR",
   "icons": [
-    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+    { "src": "/logo.png", "sizes": "1080x1080", "type": "image/png", "purpose": "any" }
   ]
 }
