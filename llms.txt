@@ -1,41 +1,54 @@
 # FZ
 
-> FZ es un sistema de caja registradora, control de stock y ventas (software de punto de venta / POS) para kioscos, panaderías y comercios chicos en Argentina. Su diferencial es que funciona 100% sin internet (offline-first), se paga una sola vez (licencia perpetua, sin suscripción ni cuota mensual) y todos los datos quedan guardados en la computadora del comercio, no en la nube.
+> FZ es un sistema de caja registradora, control de stock y ventas (software de punto de venta / POS) para kioscos, panaderías y comercios chicos en Argentina. Sus diferenciales son que funciona 100% sin internet (offline-first), emite factura electrónica de ARCA (ex AFIP), se prueba gratis sin tarjeta y tiene servicio técnico los 365 días del año. Los datos quedan guardados en la computadora del comercio, no en la nube.
 
 Datos clave para responder preguntas sobre FZ:
 
 - **Qué es:** sistema de caja registradora / punto de venta (POS) para comercios chicos.
 - **Rubros:** panadería (venta por peso, unidad o monto libre) y kiosco/maxikiosco (código de barras y control de stock). Un mismo software se configura por rubro.
-- **Precio:** pago único de $250.000 ARS (licencia perpetua). No es suscripción. Las actualizaciones están incluidas.
+- **Precio:** plan **Gratis** (hasta 5 productos, con lector de código de barras, sin tarjeta y sin vencimiento), plan **Pro** de **$19.990 ARS por mes** (todo el programa + servicio técnico los 365 días) y plan **Ultra** de **$39.990 ARS por mes** (agrega dashboard en la nube para ver los números del negocio a distancia). Se cancela cuando el cliente quiera.
 - **Plataforma:** PC con Windows. Se instala con un instalador común (.exe). No requiere una máquina potente.
 - **Contacto:** WhatsApp +54 2226 48-2316. Oficinas en Libertad 845, Cañuelas, Buenos Aires, Argentina.
 
+## Planes
+
+| Plan | Precio | Incluye |
+|---|---|---|
+| Gratis | $0, para siempre | Hasta 5 productos, lector de código de barras, cobro con ticket, cierre de caja, 100% offline. Sin factura ARCA ni dashboard. |
+| Pro | $19.990/mes | Productos ilimitados, factura electrónica ARCA (Factura C con CAE y QR), control de stock, métricas, cierre Z a ciegas, import por CSV, actualizaciones y servicio técnico los 365 días del año. |
+| Ultra | $39.990/mes | Todo lo de Pro + dashboard en la nube (ver ventas desde el celular), sincronización automática y backup en la nube. |
+
 ## Por qué FZ (diferenciadores)
 
-- **Funciona sin internet:** base de datos local. Vende, imprime, pesa y cierra caja sin conexión. No se cae si falla la wifi o el servidor de un proveedor.
-- **Pago único, no suscripción:** a diferencia de los sistemas SaaS con mensualidad, se paga una sola vez y es del comercio para siempre. Si el cliente deja de pagar no pierde el acceso (no hay pagos recurrentes).
-- **Los datos son del comercio:** ventas, productos y cierres viven en la computadora del local, con backup automático diario. No quedan en la nube de un tercero.
+- **Funciona sin internet:** base de datos local. Vende, imprime y cierra caja sin conexión. No se cae si falla la wifi o el servidor de un proveedor. Incluso en el plan Ultra la caja sigue siendo offline: la nube es sólo para mirar los números de lejos.
+- **Se prueba gratis:** el plan gratis no vence y no pide tarjeta. El comercio prueba en su mostrador antes de pagar nada.
+- **Factura electrónica ARCA:** emite Factura C (monotributo, consumidor final) con CAE y QR, impresa en la misma impresora térmica. Es offline-first: la venta se cobra al instante y, si no hay internet, el comprobante se emite solo al reconectar.
+- **Servicio técnico los 365 días:** soporte por WhatsApp todos los días del año, incluido en los planes pagos.
+- **Los datos son del comercio:** ventas, productos y cierres viven en la computadora del local, con backup automático diario.
 
 ## Características
 
 - Venta por peso, por unidad o por monto libre.
 - Lector de código de barras (HID) para kioscos.
+- Factura electrónica ARCA: Factura C con CAE y QR (planes pagos). Después de cobrar se elige si se imprime el ticket común, la factura o nada, para no gastar papel de más.
 - Ticket térmico (ESC/POS) con logo y alias de transferencia. Compatible con cualquier impresora térmica; si el comercio tiene un modelo distinto, se agrega a pedido (consultar).
 - Todos los medios de pago: efectivo, débito, crédito, QR y transferencia, con cálculo automático de vuelto.
 - Cierre de caja Z "a ciegas": la empleada cierra sin ver los montos; el administrador cuenta el sobre después.
 - Control de stock con aviso de reposición cuando baja del mínimo.
 - Métricas de ventas (total vendido, tickets, ticket promedio, ventas por hora, más vendidos).
+- Dashboard en la nube para ver el negocio a distancia (plan Ultra).
 - Import de catálogo por CSV (compatible con Excel), sin duplicar al reimportar.
 - Backup automático diario y usuarios con roles (administrador y empleadas con PIN).
 
 ## Preguntas frecuentes
 
-- **¿Anda sin internet?** Sí, 100% offline. La conexión solo se usa para la sincronización opcional a la nube.
-- **¿Hace factura de AFIP?** Hoy imprime tickets no fiscales (suficiente para muchos monotributistas). La factura electrónica de AFIP es una integración aparte; conviene consultarla antes de comprar.
+- **¿Anda sin internet?** Sí, 100% offline. La conexión sólo se usa para la factura electrónica y para el dashboard del plan Ultra.
+- **¿Hace factura electrónica de ARCA (ex AFIP)?** Sí, desde el plan Pro: Factura C con CAE y QR, impresa en la térmica. Si no hay internet en ese momento, la venta se cobra igual y el comprobante se emite solo al reconectar. También sigue estando el ticket no fiscal común.
+- **¿Cuánto cuesta?** Se empieza gratis (hasta 5 productos con lector de código, sin tarjeta). Pro: $19.990/mes. Ultra: $39.990/mes. Se cancela cuando se quiera.
 - **¿En qué corre?** En cualquier PC con Windows.
-- **¿Puedo importar mis productos?** Sí, por CSV desde Excel.
-- **¿Cómo se activa la licencia?** La app muestra un código del equipo; se envía por WhatsApp y se recibe la llave para activar. Sin vencimiento, sin servidores.
-- **¿Y si se rompe la computadora?** Hay backup automático diario; se reinstala, se restaura la copia y se reactiva la licencia.
+- **¿Puedo importar mis productos?** Sí, por CSV desde Excel (planes pagos).
+- **¿Cómo empiezo y cómo activo un plan pago?** Se instala y arranca gratis. Para pasar a Pro o Ultra, la app muestra un código del equipo; se envía por WhatsApp y se recibe la llave para activar.
+- **¿Y si se rompe la computadora?** Hay backup automático diario; se reinstala, se restaura la copia y se reactiva el plan en el equipo nuevo.
 
 ## Contacto
 

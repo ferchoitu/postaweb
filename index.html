@@ -8,7 +8,7 @@
       la landing y en robots.txt / sitemap.xml / llms.txt / site.webmanifest.
 -->
 <title>FZ — Sistema de caja, stock y ventas offline | Kiosco y panadería</title>
-<meta name="description" content="FZ es el sistema de caja registradora, control de stock y ventas para kioscos y panaderías. Funciona sin internet, se paga una sola vez (sin mensualidad) y tus datos son tuyos. Pedí tu demo por WhatsApp." />
+<meta name="description" content="FZ es el sistema de caja registradora, control de stock y ventas para kioscos y panaderías. Funciona sin internet, factura con ARCA y lo probás gratis. Planes desde $19.990/mes con soporte los 365 días. Pedí tu demo por WhatsApp." />
 <meta name="keywords" content="sistema de caja registradora, control de stock y ventas, software para kiosco, sistema para panadería, caja registradora offline, punto de venta sin internet, POS Argentina, sistema de stock, software de ventas" />
 <meta name="author" content="FZ" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -32,7 +32,7 @@
 <meta property="og:site_name" content="FZ" />
 <meta property="og:locale" content="es_AR" />
 <meta property="og:title" content="FZ — Caja, stock y ventas que anda sin internet" />
-<meta property="og:description" content="Sistema de caja registradora y control de stock para kiosco y panadería. Offline, pago único, tus datos son tuyos." />
+<meta property="og:description" content="Sistema de caja registradora y control de stock para kiosco y panadería. Anda offline, factura con ARCA y lo probás gratis. Soporte los 365 días." />
 <meta property="og:url" content="https://postaweb.vercel.app/" />
 <meta property="og:image" content="https://postaweb.vercel.app/og.png" />
 <meta property="og:image:width" content="1200" />
@@ -42,7 +42,7 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="FZ — Caja, stock y ventas que anda sin internet" />
-<meta name="twitter:description" content="Sistema de caja y control de stock para kiosco y panadería. Offline, pago único." />
+<meta name="twitter:description" content="Sistema de caja y control de stock para kiosco y panadería. Offline, factura ARCA, probala gratis." />
 <meta name="twitter:image" content="https://postaweb.vercel.app/og.png" />
 
 <!-- Fuentes: display grotesca con carácter + texto humanista + mono estilo comanda -->
@@ -62,25 +62,28 @@
   "operatingSystem": "Windows",
   "url": "https://postaweb.vercel.app/",
   "inLanguage": "es-AR",
-  "description": "Sistema de caja registradora, control de stock y ventas para kioscos y panaderías. Funciona sin internet (offline-first), con pago único sin suscripción. Los datos quedan en la computadora del comercio.",
-  "softwareVersion": "1.0",
+  "description": "Sistema de caja registradora, control de stock y ventas para kioscos y panaderías. Funciona sin internet (offline-first) y emite factura electrónica C de ARCA. Se prueba gratis y tiene planes mensuales con soporte los 365 días. Los datos quedan en la computadora del comercio.",
+  "softwareVersion": "1.1",
   "screenshot": "https://postaweb.vercel.app/og.png",
   "featureList": [
     "Funciona sin internet (offline)",
+    "Factura electrónica ARCA (Factura C) con CAE y QR",
     "Control de stock y ventas",
     "Lector de código de barras",
     "Ticket térmico ESC/POS (compatible con cualquier impresora térmica)",
     "Cierre de caja Z a ciegas",
     "Todos los medios de pago con cálculo de vuelto",
     "Backup automático diario",
+    "Dashboard en la nube (plan Ultra)",
     "Import de catálogo por CSV"
   ],
   "offers": {
-    "@type": "Offer",
-    "price": "250000",
+    "@type": "AggregateOffer",
+    "lowPrice": "0",
+    "highPrice": "39990",
     "priceCurrency": "ARS",
+    "offerCount": "3",
     "availability": "https://schema.org/InStock",
-    "priceValidUntil": "2026-12-31",
     "url": "https://postaweb.vercel.app/#precio"
   },
   "publisher": { "@type": "Organization", "name": "FZ" }
@@ -123,8 +126,8 @@
     },
     {
       "@type": "Question",
-      "name": "¿Hace factura de AFIP?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Hoy FZ imprime tickets no fiscales, ideales para el día a día del mostrador. Para muchos monotributistas alcanza. La factura electrónica de AFIP es una integración aparte: escribinos y te contamos el estado y las opciones antes de comprar." }
+      "name": "¿Hace factura electrónica de ARCA (ex AFIP)?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. FZ emite Factura C electrónica de ARCA (monotributo, consumidor final) con CAE y QR, e imprime la factura en la misma impresora térmica. Es offline-first: la venta se cobra al instante y, si en ese momento no hay internet, el comprobante se emite solo cuando vuelve la conexión. También seguís teniendo el ticket no fiscal común para el día a día." }
     },
     {
       "@type": "Question",
@@ -138,8 +141,8 @@
     },
     {
       "@type": "Question",
-      "name": "¿Cómo se activa la licencia?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Una sola vez: la app muestra un código de tu equipo, nos lo mandás por WhatsApp y te devolvemos la llave para pegar. Queda activada sin vencimiento y sin depender de ningún servidor." }
+      "name": "¿Cómo empiezo y cómo activo un plan pago?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Descargás FZ e instalás: arranca gratis, sin tarjeta, hasta 5 productos con lector de código para que lo pruebes. Cuando querés pasar a Pro o Ultra, la app muestra un código de tu equipo, nos lo mandás por WhatsApp y te devolvemos la llave para activar. La caja sigue funcionando offline; cancelás cuando quieras." }
     },
     {
       "@type": "Question",
@@ -167,11 +170,11 @@
       <a href="#features">Qué hace</a>
       <a href="#comparativa">Comparativa</a>
       <a href="#resenas">Reseñas</a>
-      <a href="#precio">Precio</a>
+      <a href="#precio">Planes</a>
       <a href="#faq">Preguntas</a>
     </nav>
     <div class="actions">
-      <a class="btn" href="#precio">Ver precio</a>
+      <a class="btn" href="#precio">Empezar gratis</a>
     </div>
   </div>
 </header>
@@ -183,15 +186,15 @@
   <div class="wrap grid">
     <div>
       <span class="eyebrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Caja registradora para comercios que no paran</span>
-      <h1>Vendé todo el día. <span class="hl">Sin internet</span>, sin mensualidad, sin sustos.</h1>
-      <p class="lead">FZ es el <b>sistema de caja registradora y control de stock y ventas</b> para tu <b>panadería</b> o <b>kiosko</b>. Se instala una vez, es <b>tuya para siempre</b> y sigue vendiendo aunque se corte la wifi. Sin nube, sin cuota mensual, con tus datos en tu propia computadora.</p>
+      <h1>Probala <span class="hl">gratis</span>. Vendé todo el día, aunque se corte internet.</h1>
+      <p class="lead">FZ es el <b>sistema de caja registradora y control de stock y ventas</b> para tu <b>panadería</b> o <b>kiosko</b>. Arrancá gratis, sin tarjeta. Sigue vendiendo aunque se corte la wifi, <b>factura con ARCA</b> y tenés <b>soporte los 365 días del año</b>.</p>
       <div class="cta-row">
-        <a class="btn amber" href="#precio">Quiero FZ en mi mostrador
+        <a class="btn amber" href="#precio">Empezar gratis
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn ghost" href="#comparativa">Comparar con lo que ya usás</a>
       </div>
       <div class="assur">
-        <span><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><b>Pago único.</b>&nbsp;No es suscripción.</span>
+        <span><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><b>Gratis</b>&nbsp;para probar. Sin tarjeta.</span>
         <span><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Anda <b>100% offline</b></span>
         <span><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Tus datos son <b>tuyos</b></span>
       </div>
@@ -248,8 +251,8 @@
   <div class="wrap">
     <div class="shead reveal">
       <span class="eyebrow">Lo que te venden hoy</span>
-      <h2>Todos los sistemas tienen la misma trampa.</h2>
-      <p class="lead">O te cobran todos los meses, o el “gratis” vive en un servidor ajeno y se cae justo cuando tenés cola. Vos solo querés cobrar y que ande.</p>
+      <h2>Los sistemas de siempre tienen la misma trampa.</h2>
+      <p class="lead">O el “gratis” vive en un servidor ajeno y se cae justo cuando tenés cola, o te clavan un sistema caro y el día que algo no anda no hay nadie del otro lado. Vos solo querés cobrar y que ande.</p>
     </div>
     <div class="two">
       <div class="card warn reveal">
@@ -263,12 +266,12 @@
         </ul>
       </div>
       <div class="card warn reveal">
-        <span class="tag"><svg class="ico bad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>El sistema con mensualidad</span>
-        <h3>Pagás para siempre por algo que nunca es tuyo.</h3>
-        <p>Los SaaS de gestión te cobran mes a mes. Sumado, en un año pagaste varias veces lo que sale el software entero.</p>
+        <span class="tag"><svg class="ico bad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>El sistema caro y solo</span>
+        <h3>Pagás un dineral y el día que falla, nadie atiende.</h3>
+        <p>Te cobran una instalación carísima por adelantado y después quedás a pie: sin soporte, sin poder probar antes, atado a que funcione.</p>
         <ul>
-          <li><svg class="ico bad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>La cuota sube todos los años.</li>
-          <li><svg class="ico bad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Si dejás de pagar, perdés la caja.</li>
+          <li><svg class="ico bad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Pagás todo de una, sin haberlo probado.</li>
+          <li><svg class="ico bad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Si se rompe un domingo, esperás al lunes.</li>
           <li><svg class="ico bad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Funciones de más que nunca vas a usar.</li>
         </ul>
       </div>
@@ -281,23 +284,23 @@
   <div class="wrap">
     <div class="after reveal">
       <span class="eyebrow">FZ lo hace al revés</span>
-      <h2>La comprás una vez. Es tuya. Y anda aunque se corte todo.</h2>
-      <p class="lead">Mismo mostrador, cero dependencia. FZ guarda todo en tu computadora, cobra sin internet y no te manda una factura cada mes.</p>
+      <h2>Empezás gratis. Anda aunque se corte todo. Y no estás solo.</h2>
+      <p class="lead">Mismo mostrador, cero dependencia. Probás sin pagar, FZ guarda todo en tu computadora, cobra sin internet y del otro lado hay alguien que te atiende los 365 días.</p>
       <div class="after-grid">
         <div class="ac">
-          <div class="n">01 · OFFLINE</div>
+          <div class="n">01 · GRATIS PARA PROBAR</div>
+          <h3>Arrancá sin tarjeta</h3>
+          <p>Descargás y probás con tus primeros productos y el lector de código. Si te sirve, pasás a un plan pago; si no, no seguís.</p>
+        </div>
+        <div class="ac">
+          <div class="n">02 · OFFLINE</div>
           <h3>Funciona sin conexión</h3>
-          <p>Base de datos local. Se corta la luz de la wifi y vos seguís cobrando como si nada.</p>
+          <p>Base de datos local. Se corta la luz de la wifi y vos seguís cobrando como si nada. Tus datos quedan en tu equipo, con backup diario.</p>
         </div>
         <div class="ac">
-          <div class="n">02 · PAGO ÚNICO</div>
-          <h3>Sin cuota mensual</h3>
-          <p>Licencia perpetua. La pagás una sola vez y las actualizaciones vienen incluidas.</p>
-        </div>
-        <div class="ac">
-          <div class="n">03 · TUS DATOS</div>
-          <h3>Todo queda con vos</h3>
-          <p>Ventas, productos y cierres en tu equipo, con backup automático diario. Nada en la nube de otro.</p>
+          <div class="n">03 · SOPORTE 365</div>
+          <h3>Alguien que te atiende</h3>
+          <p>Todos los días del año. Te ayudamos a instalar, cargar el catálogo y resolver cualquier cosa por WhatsApp, sin esperar al lunes.</p>
         </div>
       </div>
     </div>
@@ -446,6 +449,16 @@
         <h3>Backup automático</h3>
         <p>Copia diaria de todo, con rotación. Si se rompe la compu, reinstalás y seguís donde estabas.</p>
       </div>
+      <div class="f reveal">
+        <div class="fi"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1z"/><path d="M8 10h8M8 14h5"/></svg></div>
+        <h3>Factura electrónica ARCA</h3>
+        <p><b>Factura C</b> con CAE y QR, impresa en la misma térmica. Si no hay internet, la venta se cobra igual y el comprobante sale solo al reconectar.</p>
+      </div>
+      <div class="f reveal">
+        <div class="fi"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M17.5 19H9a7 7 0 116.71-9h1.79a4.5 4.5 0 110 9z"/></svg></div>
+        <h3>Dashboard en la nube <span style="font-family:var(--f-mono); font-size:11px; background:var(--green); color:#fff; padding:2px 7px; border-radius:6px; vertical-align:middle; margin-left:4px">ULTRA</span></h3>
+        <p>Mirá cuánto vendió el local desde el celular, estés donde estés. La caja sigue andando offline: la nube es solo para ver.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -456,7 +469,7 @@
     <div class="shead reveal">
       <span class="eyebrow">FZ vs. lo de siempre</span>
       <h2>Al lado, la diferencia se ve sola.</h2>
-      <p class="lead">Lo mismo que buscás cuando googleás “sistema de stock y ventas” o “caja registradora”, pero sin las dos trampas de siempre.</p>
+      <p class="lead">Lo mismo que buscás cuando googleás “sistema de stock y ventas” o “caja registradora”, pero sin las trampas de siempre.</p>
     </div>
     <div class="cmp-wrap reveal">
       <table class="cmp">
@@ -466,7 +479,7 @@
             <th scope="col" class="us">
               <div class="us-head"><span class="us-pill">Recomendado</span>FZ</div>
             </th>
-            <th scope="col">SaaS con<br>mensualidad</th>
+            <th scope="col">Sistema<br>tradicional</th>
             <th scope="col">App “gratis”<br>online</th>
           </tr>
         </thead>
@@ -478,16 +491,22 @@
             <td><span class="cell no"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M18 6L6 18M6 6l12 12"/></svg>No</span></td>
           </tr>
           <tr>
-            <td class="row-h">¿Cuánto pagás?</td>
-            <td class="col-us"><span class="cell yes tnum">Una vez</span></td>
-            <td><span class="cell no tnum">Todos los meses</span></td>
-            <td><span class="cell meh">Gratis, después paga</span></td>
+            <td class="row-h">¿Lo probás antes de pagar?</td>
+            <td class="col-us"><span class="cell yes"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M20 6L9 17l-5-5"/></svg>Gratis, sin tarjeta</span></td>
+            <td><span class="cell no">Pagás la instalación primero</span></td>
+            <td><span class="cell meh">Sí, hasta que te cobra</span></td>
           </tr>
           <tr>
             <td class="row-h">¿De quién son tus datos?</td>
             <td class="col-us"><span class="cell yes">Tuyos, en tu PC</span></td>
+            <td><span class="cell meh">Depende</span></td>
             <td><span class="cell no">Del proveedor</span></td>
-            <td><span class="cell no">Del proveedor</span></td>
+          </tr>
+          <tr>
+            <td class="row-h">Factura electrónica ARCA</td>
+            <td class="col-us"><span class="cell yes"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M20 6L9 17l-5-5"/></svg>Factura C con CAE y QR</span></td>
+            <td><span class="cell meh">Sí, con costo aparte</span></td>
+            <td><span class="cell meh">Depende del plan</span></td>
           </tr>
           <tr>
             <td class="row-h">Venta por peso, unidad o monto</td>
@@ -502,10 +521,10 @@
             <td><span class="cell no"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M18 6L6 18M6 6l12 12"/></svg>No</span></td>
           </tr>
           <tr>
-            <td class="row-h">Si dejás de pagar…</td>
-            <td class="col-us"><span class="cell yes">Seguís usándola</span></td>
-            <td><span class="cell no">Perdés el acceso</span></td>
-            <td><span class="cell no">Perdés todo</span></td>
+            <td class="row-h">¿Quién te atiende si falla?</td>
+            <td class="col-us"><span class="cell yes"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M20 6L9 17l-5-5"/></svg>Los 365 días, por WhatsApp</span></td>
+            <td><span class="cell meh">Horario de oficina</span></td>
+            <td><span class="cell no">Un formulario y a esperar</span></td>
           </tr>
         </tbody>
       </table>
@@ -584,7 +603,7 @@
         <span class="stars" aria-label="5 de 5 estrellas">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
         </span>
-        <q>Lo pagué una vez y se terminó el tema. Estaba cansado de la cuota mensual que me subían cada dos por tres.</q>
+        <q>Lo probé gratis unos días antes de decidir, así que cuando pasé al plan pago ya sabía que me servía. Un domingo tuve una duda y me contestaron igual.</q>
         <div class="who">
           <span class="av" style="background:var(--amber); color:#2a1902">RA</span>
           <span><span class="nm">Rubén Aguirre</span><br><span class="bz">Kiosco 24hs · Córdoba</span></span>
@@ -648,36 +667,78 @@
 <section id="precio">
   <div class="wrap">
     <div class="shead reveal" style="text-align:center; margin-inline:auto">
-      <span class="eyebrow">Precio</span>
-      <h2>Una compra. Cero sorpresas.</h2>
+      <span class="eyebrow">Planes y precios</span>
+      <h2>Empezá gratis. Pagás sólo si te sirve.</h2>
+      <p class="lead" style="margin-inline:auto">Sin tarjeta para arrancar y sin contrato: probás FZ en tu mostrador y, si te convence, elegís el plan. Cancelás cuando quieras.</p>
     </div>
-    <div class="price-wrap">
-      <div class="price-card reveal">
-        <span class="flag">PAGO ÚNICO</span>
-        <div class="amt">
-          <span class="big tnum">$250.000</span>
-          <span class="once">una sola vez</span>
+
+    <div class="tiers reveal">
+      <!-- GRATIS -->
+      <div class="tier">
+        <div class="tname">Gratis</div>
+        <div class="tdesc">Para probarlo en tu mostrador, sin poner un peso.</div>
+        <div class="price">
+          <span class="n tnum">$0</span>
+          <span class="freetag">para siempre</span>
         </div>
-        <div class="strike">Sin cuota mensual · sin vencimiento</div>
         <ul>
-          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Licencia perpetua atada a tu computadora</li>
-          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Actualizaciones incluidas</li>
-          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Configurado para tu rubro</li>
-          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Ayuda para instalar y empezar</li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Hasta <b>5 productos</b></li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Con <b>lector de código de barras</b></li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Cobrá, imprimí el ticket y cerrá la caja</li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Anda 100% offline</li>
+          <li class="off"><svg class="ico bad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Sin factura ARCA ni dashboard</li>
         </ul>
-        <a class="btn amber" href="https://wa.me/5492226482316?text=Hola!%20Quiero%20info%20de%20FZ%20para%20mi%20comercio" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm5.5 14c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3-.8-2.5-1-4.1-3.6-4.2-3.8-.1-.2-1-1.3-1-2.5s.6-1.7.8-2c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.5l.7 1.7c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.3.1.1.1.6-.1 1.2z"/></svg>
-          Lo quiero — escribir por WhatsApp</a>
-        <p style="font-size:12.5px; color:var(--ink-faint); margin-top:12px; text-align:center; font-family:var(--f-mono)">Coordinamos una demo y lo dejamos andando en tu comercio.</p>
+        <a class="btn ghost" href="https://wa.me/5492226482316?text=Hola!%20Quiero%20probar%20FZ%20gratis" target="_blank" rel="noopener">Descargar y probar</a>
       </div>
 
-      <div class="price-aside reveal">
-        <h3>¿Por qué pago único?</h3>
-        <p>Porque una caja registradora no debería ser un alquiler eterno. La comprás como comprarías la balanza o la registradora: una vez, y es tuya.</p>
-        <p>La activación es simple: la app te muestra un <b>código de tu equipo</b>, nos lo pasás por WhatsApp y te devolvemos la llave. Todo offline, sin servidores.</p>
-        <div class="guarantee">
+      <!-- PRO -->
+      <div class="tier hot">
+        <span class="flag">EL QUE ELIGEN TODOS</span>
+        <div class="tname">Pro</div>
+        <div class="tdesc">Tu comercio andando, con todo el programa y respaldo.</div>
+        <div class="price">
+          <span class="n tnum">$19.990</span>
+          <span class="per">/ mes</span>
+        </div>
+        <ul>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><b>Productos ilimitados</b></li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><b>Factura electrónica ARCA</b> (Factura C con CAE y QR)</li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Control de stock, métricas y cierre Z a ciegas</li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Importás tu catálogo por CSV (Excel)</li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><b>Servicio técnico los 365 días</b> del año</li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Actualizaciones incluidas</li>
+        </ul>
+        <a class="btn amber" href="https://wa.me/5492226482316?text=Hola!%20Quiero%20el%20plan%20Pro%20de%20FZ" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm5.5 14c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3-.8-2.5-1-4.1-3.6-4.2-3.8-.1-.2-1-1.3-1-2.5s.6-1.7.8-2c.2-.2.5-.3.6-.3h.5c.2 0 .4 0 .6.5l.7 1.7c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.3.1.1.1.6-.1 1.2z"/></svg>
+          Quiero el Pro</a>
+      </div>
+
+      <!-- ULTRA -->
+      <div class="tier">
+        <div class="tname">Ultra</div>
+        <div class="tdesc">Para mirar el negocio de lejos, sin estar en el mostrador.</div>
+        <div class="price">
+          <span class="n tnum">$39.990</span>
+          <span class="per">/ mes</span>
+        </div>
+        <ul>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><b>Todo lo del plan Pro</b>, más:</li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><b>Dashboard en la nube</b>: mirá las ventas desde el celular</li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Ventas y cierres sincronizados automáticamente</li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Backup de tus datos también en la nube</li>
+          <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Servicio técnico los 365 días del año</li>
+        </ul>
+        <a class="btn ghost" href="https://wa.me/5492226482316?text=Hola!%20Quiero%20el%20plan%20Ultra%20de%20FZ%20con%20dashboard" target="_blank" rel="noopener">Quiero el Ultra</a>
+      </div>
+    </div>
+
+    <p class="tiers-note">Precios en pesos, por comercio. La caja siempre anda offline — hasta en el plan Ultra, la nube es sólo para mirar de lejos.</p>
+
+    <div class="price-wrap" style="margin-top:34px; grid-template-columns:1fr">
+      <div class="price-aside reveal" style="max-width:760px; margin-inline:auto; text-align:center">
+        <div class="guarantee" style="justify-content:center">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" style="flex:0 0 auto"><path d="M12 3l7 4v5c0 4-3 6.5-7 8-4-1.5-7-4-7-8V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
-          <span>Probala en tu mostrador antes de decidir. Si no te sirve, no seguís — sin letra chica.</span>
+          <span>Probala gratis en tu mostrador todo lo que quieras. Si no te sirve, no pagás nada — sin letra chica y sin tarjeta.</span>
         </div>
       </div>
     </div>
@@ -697,8 +758,8 @@
         <div class="a">Sí. FZ guarda todo en una base de datos en tu propia computadora. No necesita internet para vender, imprimir, pesar ni cerrar caja. La conexión solo hace falta si querés usar la sincronización opcional a la nube.</div>
       </details>
       <details>
-        <summary>¿Hace factura de AFIP?<span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="a">Hoy FZ imprime <b>tickets no fiscales</b>, ideales para el día a día del mostrador. Para muchos monotributistas alcanza. La factura electrónica de AFIP es una integración aparte: escribinos y te contamos el estado y las opciones antes de comprar, para que no haya sorpresas.</div>
+        <summary>¿Hace factura electrónica de ARCA (ex AFIP)?<span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Sí, desde el plan Pro. FZ emite <b>Factura C</b> electrónica (monotributo, consumidor final) con <b>CAE y QR</b>, y la imprime en la misma impresora térmica. Es offline-first: la venta se cobra al instante y, si justo no hay internet, el comprobante se emite solo cuando vuelve la conexión. Después de cada venta elegís si imprimís el ticket común, la factura o nada, para no gastar papel de más.</div>
       </details>
       <details>
         <summary>¿En qué computadora corre?<span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
@@ -709,8 +770,8 @@
         <div class="a">Sí. Importás tu lista desde un archivo CSV (lo que exporta cualquier Excel). FZ detecta las columnas, crea las categorías y no te duplica nada si reimportás para actualizar precios o stock.</div>
       </details>
       <details>
-        <summary>¿Cómo se activa la licencia?<span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="a">Una sola vez: la app muestra un <b>código de tu equipo</b>, nos lo mandás por WhatsApp y te devolvemos la llave para pegar. Queda activada sin vencimiento y sin depender de ningún servidor.</div>
+        <summary>¿Cómo empiezo y cómo activo un plan pago?<span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="a">Instalás FZ y arranca <b>gratis, sin tarjeta</b>: hasta 5 productos con lector de código para que lo pruebes con calma. Cuando querés pasar a <b>Pro</b> o <b>Ultra</b>, la app te muestra un <b>código de tu equipo</b>, nos lo pasás por WhatsApp y te devolvemos la llave para activar. La caja sigue andando offline y cancelás cuando quieras.</div>
       </details>
       <details>
         <summary>¿Y si se rompe la computadora?<span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
