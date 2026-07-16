@@ -1,6 +1,6 @@
 {
-  "name": "FZ — Caja registradora offline",
-  "short_name": "FZ",
+  "name": "DASHBOX — Caja registradora offline",
+  "short_name": "DASHBOX",
   "description": "Sistema de caja, control de stock y ventas offline para kiosco y panadería.",
   "start_url": "/",
   "display": "standalone",

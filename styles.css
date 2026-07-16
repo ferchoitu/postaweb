@@ -1,5 +1,5 @@
 /* ============================================================
-   POSTA · landing
+   DASHBOX · landing
    Tokens → todo el color/tipo pasa por variables (light+dark)
    ============================================================ */
 :root{
@@ -9,7 +9,7 @@
   --ink:#17150F;        /* casi negro cálido */
   --ink-soft:#5B5648;   /* gris cálido secundario */
   --ink-faint:#8A8371;
-  --green:#0C5D7A;       /* petróleo — color de marca (del logo FZ) */
+  --green:#0C5D7A;       /* petróleo — color de marca */
   --green-bright:#1795BA;/* cyan interactivo */
   --green-ink:#083D50;
   --amber:#E8912A;      /* ámbar resaltador — acento puntual */
@@ -77,6 +77,8 @@ p{margin:0}
 .nav{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--paper) 86%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
 .nav .row{display:flex; align-items:center; gap:20px; height:66px}
 .brand{display:flex; align-items:center; gap:10px; font-family:var(--f-display); font-weight:800; font-size:21px; letter-spacing:-.02em; text-decoration:none}
+.brand img{height:22px; width:auto; display:block}
+footer .brand img{height:19px}
 .brand .dot{width:12px; height:12px; border-radius:50%; background:var(--amber); box-shadow:0 0 0 4px color-mix(in srgb,var(--amber) 26%,transparent)}
 .nav .links{display:flex; gap:26px; margin-left:auto; font-size:15px; font-weight:600}
 .nav .links a{text-decoration:none; color:var(--ink-soft); transition:color .15s}
