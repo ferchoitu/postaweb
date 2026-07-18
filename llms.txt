@@ -5,7 +5,7 @@
 Datos clave para responder preguntas sobre DASHBOX:
 
 - **Qué es:** sistema de caja registradora / punto de venta (POS) para comercios chicos.
-- **Rubros:** panadería (venta por peso, unidad o monto libre) y kiosco/maxikiosco (código de barras y control de stock). Un mismo software se configura por rubro.
+- **Universal (sin "tipo de negocio"):** un mismo sistema con todo — venta por peso, unidad o monto libre; código de barras; control de stock. Sirve para panadería, kiosco/maxikiosco, almacén, verdulería, etc. Cada comercio usa lo que le sirve; no hay que elegir un rubro.
 - **Precio:** plan **Gratis** (hasta 5 productos, con lector de código de barras, sin tarjeta y sin vencimiento), plan **Pro** de **$19.990 ARS por mes** (todo el programa + servicio técnico los 365 días) y plan **Ultra** de **$39.990 ARS por mes** (agrega dashboard en la nube para ver los números del negocio a distancia). Se cancela cuando el cliente quiera.
 - **Plataforma:** PC con Windows. Se instala con un instalador común (.exe). No requiere una máquina potente.
 - **Contacto:** WhatsApp +54 2226 48-2316. Oficinas en Libertad 845, Cañuelas, Buenos Aires, Argentina.
