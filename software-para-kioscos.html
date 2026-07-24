@@ -56,7 +56,24 @@
   "url": "https://postaweb.vercel.app/software-para-kioscos",
   "inLanguage": "es-AR",
   "description": "Software para kioscos y maxikioscos con control de stock, lector de código de barras y caja registradora offline. Se prueba gratis (hasta 5 productos con lector) y se compra con un único pago de $120.000, tuyo para siempre, con factura ARCA, actualizaciones y soporte los 365 días. Dashboard en la nube opcional por mes.",
-  "offers": { "@type": "Offer", "price": "250000", "priceCurrency": "ARS", "availability": "https://schema.org/InStock" },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "DASHBOX completo (pago único)",
+      "price": "120000",
+      "priceCurrency": "ARS",
+      "description": "Un solo pago: todo el programa, tuyo para siempre, con actualizaciones de por vida y servicio técnico los 365 días.",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Dashboard en la nube (opcional)",
+      "price": "19990",
+      "priceCurrency": "ARS",
+      "description": "Add-on mensual para ver las ventas del negocio a distancia desde el celular.",
+      "availability": "https://schema.org/InStock"
+    }
+  ],
   "publisher": { "@type": "Organization", "name": "DASHBOX" }
 }
 </script>
@@ -335,7 +352,7 @@
           <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><b>Servicio técnico los 365 días</b> del año</li>
           <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><b>Sin abono mensual</b>: lo pagás una vez y es tuyo</li>
         </ul>
-        <a class="btn amber" href="https://wa.me/5492226482316?text=Hola!%20Quiero%20comprar%20DASHBOX%20(pago%20unico)%20para%20mi%20kiosco" target="_blank" rel="noopener">Quiero DASHBOX</a>
+        <a data-wiz="dashbox" class="btn amber" href="https://wa.me/5492226482316?text=Hola!%20Quiero%20comprar%20DASHBOX%20(pago%20unico)%20para%20mi%20kiosco" target="_blank" rel="noopener">Quiero DASHBOX</a>
       </div>
 
       <div class="tier">
@@ -349,7 +366,7 @@
           <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Backup de tus datos también en la nube</li>
           <li><svg class="ico good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Lo sumás o lo sacás cuando quieras</li>
         </ul>
-        <a class="btn ghost" href="https://wa.me/5492226482316?text=Hola!%20Quiero%20DASHBOX%20con%20el%20dashboard%20en%20la%20nube%20para%20mi%20kiosco" target="_blank" rel="noopener">Quiero el dashboard</a>
+        <a data-wiz="nube" class="btn ghost" href="https://wa.me/5492226482316?text=Hola!%20Quiero%20DASHBOX%20con%20el%20dashboard%20en%20la%20nube%20para%20mi%20kiosco" target="_blank" rel="noopener">Quiero el dashboard</a>
       </div>
     </div>
     <p class="tiers-note">Precios en pesos, por comercio. El programa se paga <b>una sola vez</b> y es tuyo para siempre; el dashboard en la nube es un abono mensual <b>opcional</b>. La caja siempre anda offline — la nube es sólo para mirar de lejos.</p>
@@ -409,5 +426,6 @@
   els.forEach(function(e){io.observe(e)});
 })();
 </script>
+<script defer src="/wizard.js"></script>
 </body>
 </html>
