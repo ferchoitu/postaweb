@@ -340,11 +340,11 @@
             <div class="toprow">
               <div class="tabs">
                 <span class="tab on">Todos</span>
-                <span class="tab">Panadería</span>
-                <span class="tab">Facturas</span>
-                <span class="tab">Cafetería</span>
+                <span class="tab"><i class="dot" style="background:#d97706"></i>Panadería</span>
+                <span class="tab"><i class="dot" style="background:#ea580c"></i>Facturas</span>
+                <span class="tab"><i class="dot" style="background:#7c3aed"></i>Cafetería</span>
               </div>
-              <span class="search">🔍 Buscar…</span>
+              <span class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm10 18-4.35-4.35"/></svg>Buscar…</span>
             </div>
             <div class="pgrid">
               <div class="tile" style="background:linear-gradient(160deg,#d97706dd,#d9770688)"><span class="em">🥖</span><span class="bdg">peso</span><div><div class="nm">Pan francés</div><div class="pr">$3.000/kg</div></div></div>
@@ -361,9 +361,10 @@
               <div class="tile" style="background:linear-gradient(160deg,#9333eadd,#9333ea88)"><span class="em">🍩</span><div><div class="nm">Dona</div><div class="pr">$900</div></div></div>
             </div>
             <div class="foot">
-              <span class="gbtn">💲 Monto libre</span>
-              <span class="gbtn">🖨 Reimprimir último</span>
-              <span class="gbtn">↩︎ Anular última venta</span>
+              <span class="gbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm4-14h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8m4-10v2m0 8v2"/></svg> Monto libre</span>
+              <span class="gbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2m-2-9V4a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v5m10 5H6v7a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-7Z"/></svg> Reimprimir último</span>
+              <span class="gbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Zm12 8H8m8 4H8m5-8H8"/></svg> Facturar última</span>
+              <span class="gbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/></svg> Anular última venta</span>
             </div>
           </div>
           <div class="cart">
@@ -389,35 +390,61 @@
           <span class="tbadge">Hoy</span>
         </div>
         <div class="met">
-          <div class="kpis">
-            <div class="kpi"><div class="em">💰</div><div class="l">Total vendido</div><div class="v">$184.500</div></div>
-            <div class="kpi"><div class="em">🧾</div><div class="l">Tickets</div><div class="v">62</div></div>
-            <div class="kpi"><div class="em">📈</div><div class="l">Ticket prom.</div><div class="v">$2.976</div></div>
+          <div class="mtop">
+            <span class="mdate"><b>18</b><span>Vie,<br>Julio</span></span>
+            <span class="mpills"><i class="on">Hoy</i><i>Semana</i><i>Mes</i></span>
           </div>
-          <div class="chartcard">
-            <div class="ct"><span>Ventas por hora</span><b>Pico 09–10 h</b></div>
-            <div class="bars" aria-hidden="true">
-              <div class="bcol"><span class="bk" style="height:22%"></span><span class="bx">7</span></div>
-              <div class="bcol"><span class="bk" style="height:55%"></span><span class="bx">8</span></div>
-              <div class="bcol"><span class="bk" style="height:92%"></span><span class="bx">9</span></div>
-              <div class="bcol"><span class="bk" style="height:78%"></span><span class="bx">10</span></div>
-              <div class="bcol"><span class="bk" style="height:44%"></span><span class="bx">11</span></div>
-              <div class="bcol"><span class="bk" style="height:36%"></span><span class="bx">12</span></div>
-              <div class="bcol"><span class="bk" style="height:30%"></span><span class="bx">13</span></div>
-              <div class="bcol"><span class="bk" style="height:48%"></span><span class="bx">17</span></div>
-              <div class="bcol"><span class="bk" style="height:70%"></span><span class="bx">18</span></div>
-              <div class="bcol"><span class="bk" style="height:58%"></span><span class="bx">19</span></div>
-              <div class="bcol"><span class="bk" style="height:34%"></span><span class="bx">20</span></div>
+
+          <!-- Héroe: total vendido + sparkline ámbar -->
+          <div class="mcard mhero">
+            <div class="mrow">
+              <div>
+                <div class="mlbl">Total vendido</div>
+                <div class="mbig">$184.500</div>
+              </div>
+              <span class="mico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm8 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6 12h.01M18 12h.01"/></svg></span>
             </div>
+            <svg class="mspark" viewBox="0 0 320 42" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="mk-spark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8912A" stop-opacity=".22"/><stop offset="1" stop-color="#E8912A" stop-opacity="0"/></linearGradient></defs>
+              <path d="M0,34 L40,29 L80,31 L120,18 L160,23 L200,10 L240,17 L280,7 L320,13 L320,42 L0,42 Z" fill="url(#mk-spark)"/>
+              <path d="M0,34 L40,29 L80,31 L120,18 L160,23 L200,10 L240,17 L280,7 L320,13" fill="none" stroke="#E8912A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
-          <div class="kpis" style="grid-template-columns:1fr 1fr">
-            <div class="kpi"><div class="em">🥇</div><div class="l">Más vendido</div><div class="v" style="font-size:13px">Medialunas · 148 u</div></div>
-            <div class="kpi"><div class="em">🧉</div><div class="l">Cierre de caja Z</div><div class="v" style="font-size:13px;color:var(--grn)">Sin diferencia</div></div>
+
+          <!-- KPIs chicos -->
+          <div class="mkpis">
+            <div class="mcard mkpi"><div class="mlbl">Tickets</div><div class="mnum">62</div></div>
+            <div class="mcard mkpi"><div class="mlbl">Ticket prom.</div><div class="mnum">$2.976</div></div>
+          </div>
+
+          <!-- La caja hoy: la única card oscura, anillo ámbar -->
+          <div class="mcard mdark">
+            <div class="mlbl">La caja hoy</div>
+            <div class="mring">
+              <svg width="106" height="106" viewBox="0 0 106 106" aria-hidden="true">
+                <circle cx="53" cy="53" r="44" fill="none" stroke="rgba(243,241,233,.14)" stroke-width="11"/>
+                <circle cx="53" cy="53" r="44" fill="none" stroke="#E8912A" stroke-width="11" stroke-linecap="round" stroke-dasharray="276" stroke-dashoffset="88" transform="rotate(-90 53 53)"/>
+              </svg>
+              <div class="rin"><span class="rc">68%</span><span class="rl">Efectivo</span></div>
+            </div>
+            <div class="mzc"><svg viewBox="0 0 24 24" fill="none" stroke="#5FCF95" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Cierre Z <b>sin diferencia</b></div>
+          </div>
+
+          <!-- Para reponer: la única card ámbar -->
+          <div class="mcard mamber">
+            <div class="mrow">
+              <div>
+                <div class="mlbl">Para reponer</div>
+                <div class="mbig">3 productos</div>
+              </div>
+              <span class="mico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3ZM12 9v4m0 4h.01"/></svg></span>
+            </div>
+            <div class="mchips"><i>Levadura · 2</i><i>Harina 000 · 4</i><i>Azúcar · 3</i></div>
           </div>
         </div>
       </div>
     </div>
-    <p class="cmp-note" style="text-align:center">Pantallas reales de DASHBOX (tema oscuro de alto contraste, pensado para pantallas de mostrador).</p>
+    <p class="cmp-note" style="text-align:center">Pantallas reales de DASHBOX: la <b>caja</b> en tema oscuro (mostrador, alto contraste) y las <b>métricas</b> en claro (la trastienda, para leer y analizar).</p>
   </div>
 </section>
 

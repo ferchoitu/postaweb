@@ -193,7 +193,7 @@ footer .brand img{height:19px}
   --b9:#0b0f14; --b8:#121821; --b7:#1b2430; --b6:#26313f; --grn:#22c55e; --sl:#e2e8f0; --sl4:#94a3b8;
   background:var(--b9); border:1px solid #2b3a4a; border-radius:15px; overflow:hidden;
   box-shadow:0 0 0 1px rgba(255,255,255,.05), 0 34px 64px -26px rgba(0,0,0,.55), 0 8px 22px -10px rgba(0,0,0,.35);
-  font-family:system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--sl); font-size:13px; line-height:1.4;
+  font-family:var(--f-body); color:var(--sl); font-size:13px; line-height:1.4;
   display:flex; flex-direction:column;
 }
 .appwin .tbar{display:flex; align-items:center; gap:9px; height:38px; padding:0 14px; background:var(--b8); border-bottom:1px solid var(--b7)}
@@ -202,55 +202,88 @@ footer .brand img{height:19px}
 .appwin .tt{flex:1; text-align:center; font-size:12px; color:var(--sl4); font-weight:600}
 .appwin .tbadge{font-size:10.5px; background:color-mix(in srgb,var(--grn) 18%,transparent); color:var(--grn); border:1px solid color-mix(in srgb,var(--grn) 38%,transparent); border-radius:20px; padding:2px 9px; font-weight:700}
 /* POS */
-.pos{display:grid; grid-template-columns:1fr 208px; flex:1}
+.pos{display:grid; grid-template-columns:1fr 210px; flex:1}
 @media(max-width:520px){ .pos{grid-template-columns:1fr} }
 .pos .left{padding:12px; display:flex; flex-direction:column; gap:10px; min-width:0}
 .pos .toprow{display:flex; align-items:center; gap:8px}
 .pos .tabs{display:flex; gap:6px; flex-wrap:wrap; min-width:0}
-.pos .tab{font-size:11.5px; font-weight:600; padding:5px 11px; border-radius:9px; background:var(--b7); color:var(--sl4); white-space:nowrap}
-.pos .tab.on{background:var(--grn); color:#04140a}
-.pos .search{margin-left:auto; font-size:11.5px; color:var(--sl4); background:var(--b9); border:1px solid var(--b6); border-radius:8px; padding:5px 10px; white-space:nowrap}
+.pos .tab{font-family:var(--f-display); font-size:11.5px; font-weight:700; padding:5px 12px; border-radius:999px; background:var(--b7); color:var(--sl4); white-space:nowrap; display:inline-flex; align-items:center; gap:6px}
+.pos .tab .dot{width:7px; height:7px; border-radius:50%; flex:0 0 auto}
+.pos .tab.on{background:var(--amber); color:var(--amber-ink)}
+.pos .search{margin-left:auto; font-size:11.5px; color:var(--sl4); background:var(--b9); border:1px solid var(--b6); border-radius:999px; padding:5px 12px; white-space:nowrap; display:inline-flex; align-items:center; gap:6px}
+.pos .search svg{width:12px; height:12px}
 .pos .pgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:9px; min-width:0}
 @media(max-width:520px){ .pos .pgrid{grid-template-columns:repeat(3,1fr)} }
-.tile{position:relative; height:84px; border-radius:14px; border:1px solid rgba(255,255,255,.1); padding:9px; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; box-shadow:0 6px 14px -7px rgba(0,0,0,.55); color:#fff}
+.tile{position:relative; height:86px; border-radius:18px; padding:9px; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; box-shadow:0 8px 16px -8px rgba(0,0,0,.55); color:#fff}
 .tile .em{font-size:23px; line-height:1; filter:drop-shadow(0 1px 1px rgba(0,0,0,.3))}
-.tile .bdg{position:absolute; top:8px; right:8px; font-size:8px; font-weight:800; text-transform:uppercase; background:rgba(0,0,0,.34); border-radius:4px; padding:2px 5px; letter-spacing:.03em}
-.tile .nm{font-size:11.5px; font-weight:700; line-height:1.08}
-.tile .pr{font-size:10.5px; font-weight:600; opacity:.92}
+.tile .bdg{position:absolute; top:8px; right:8px; font-family:var(--f-mono); font-size:8px; font-weight:700; text-transform:lowercase; background:rgba(0,0,0,.34); border-radius:999px; padding:2px 7px; letter-spacing:.04em}
+.tile .nm{font-family:var(--f-display); font-size:11.5px; font-weight:700; line-height:1.08}
+.tile .pr{font-size:10.5px; font-weight:600; opacity:.92; font-variant-numeric:tabular-nums}
 .pos .foot{display:flex; gap:6px; margin-top:auto; flex-wrap:wrap}
-.pos .gbtn{font-size:10.5px; background:var(--b7); color:var(--sl); border-radius:9px; padding:6px 10px; font-weight:600}
+.pos .gbtn{font-size:10.5px; background:var(--b7); color:var(--sl); border-radius:999px; padding:6px 11px; font-weight:600; display:inline-flex; align-items:center; gap:5px}
+.pos .gbtn svg{width:13px; height:13px; opacity:.85}
 /* Carrito */
 .cart{background:var(--b8); border-left:1px solid var(--b7); display:flex; flex-direction:column; min-width:0}
-.cart .ch{display:flex; align-items:center; justify-content:space-between; padding:11px 13px; border-bottom:1px solid var(--b7); font-weight:800; font-size:15px}
-.cart .ch .vac{font-size:11px; color:var(--sl4); font-weight:600}
+.cart .ch{display:flex; align-items:center; justify-content:space-between; padding:14px 14px 8px; font-family:var(--f-mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--sl4); font-weight:700}
+.cart .ch .vac{font-family:var(--f-body); text-transform:none; letter-spacing:0; font-size:11px; color:var(--sl4); font-weight:600}
 .cart .items{padding:8px; display:flex; flex-direction:column; gap:6px; flex:1}
-.citem{display:flex; align-items:center; gap:8px; background:rgba(38,49,63,.55); border-radius:11px; padding:7px 8px}
+.citem{display:flex; align-items:center; gap:8px; background:rgba(38,49,63,.55); border-radius:12px; padding:7px 8px}
 .citem .em{font-size:17px}
-.citem .nm{font-size:12px; font-weight:700; line-height:1.1}
+.citem .nm{font-family:var(--f-display); font-size:12px; font-weight:700; line-height:1.1}
 .citem .sub{font-size:10px; color:var(--sl4)}
 .citem .stp{display:flex; align-items:center; gap:5px; margin-left:auto}
 .citem .stp b{font-size:12px; width:13px; text-align:center}
-.citem .sq{width:21px; height:21px; border-radius:7px; background:var(--b6); display:grid; place-items:center; font-size:13px; line-height:1}
+.citem .sq{width:22px; height:22px; border-radius:8px; background:var(--b6); display:grid; place-items:center; font-size:13px; line-height:1}
 .citem .gr{margin-left:auto; font-size:10px; font-family:var(--f-mono); color:var(--sl4)}
-.cart .tot{border-top:1px solid var(--b7); padding:12px 13px; display:flex; flex-direction:column; gap:9px}
+.cart .tot{margin:8px; padding:14px; background:var(--b9); border-radius:22px; display:flex; flex-direction:column; gap:10px}
 .cart .totrow{display:flex; align-items:flex-end; justify-content:space-between}
-.cart .totrow .l{font-size:11.5px; color:var(--sl4); font-weight:700; letter-spacing:.05em}
-.cart .totrow .v{font-size:26px; font-weight:900; font-variant-numeric:tabular-nums; letter-spacing:-.02em}
-.cart .cobrar{background:var(--grn); color:#04140a; text-align:center; padding:11px; border-radius:11px; font-weight:900; font-size:15px; letter-spacing:.05em}
-/* Métricas */
-.met{padding:14px; display:flex; flex-direction:column; gap:11px; flex:1}
-.kpis{display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px}
-.kpi{background:var(--b8); border:1px solid var(--b7); border-radius:14px; padding:11px 12px}
-.kpi .em{font-size:18px}
-.kpi .l{font-size:10px; color:var(--sl4); margin-top:4px}
-.kpi .v{font-size:15px; font-weight:900; font-variant-numeric:tabular-nums; margin-top:2px}
-.chartcard{background:var(--b8); border:1px solid var(--b7); border-radius:14px; padding:13px 14px; flex:1; display:flex; flex-direction:column; min-height:150px}
-.chartcard .ct{font-size:11.5px; color:var(--sl4); font-weight:700; margin-bottom:12px; display:flex; justify-content:space-between}
-.chartcard .ct b{color:var(--grn)}
-.bars{display:flex; align-items:flex-end; gap:5px; flex:1; min-height:100px}
-.bars .bcol{flex:1; display:flex; flex-direction:column; align-items:center; gap:5px; justify-content:flex-end; height:100%}
-.bars .bk{width:100%; background:linear-gradient(180deg,var(--grn),#15803d); border-radius:5px 5px 0 0; min-height:4px}
-.bars .bx{font-size:8.5px; color:var(--sl4)}
+.cart .totrow .l{font-family:var(--f-mono); font-size:10px; color:var(--sl4); font-weight:700; letter-spacing:.13em; text-transform:uppercase; padding-bottom:3px}
+.cart .totrow .v{font-family:var(--f-display); font-size:28px; font-weight:800; font-variant-numeric:tabular-nums; letter-spacing:-.03em}
+.cart .cobrar{background:var(--amber); color:var(--amber-ink); text-align:center; padding:12px; border-radius:14px; font-family:var(--f-display); font-weight:800; font-size:16px; letter-spacing:.02em}
+
+/* Métricas: la trastienda, tema CLARO (bento) — mismos tokens que la web.
+   El chrome (titlebar) sigue oscuro; el cuerpo .met es claro. */
+.met{background:var(--paper); color:var(--ink); padding:13px; display:flex; flex-direction:column; gap:10px; flex:1; font-family:var(--f-body)}
+.met .mtop{display:flex; align-items:center; gap:9px}
+.met .mdate{display:flex; align-items:center; gap:8px; background:var(--paper-2); box-shadow:0 1px 2px rgba(23,21,15,.07); border-radius:999px; padding:5px 6px 5px 12px}
+.met .mdate b{font-family:var(--f-display); font-weight:800; font-size:19px; line-height:1; letter-spacing:-.03em}
+.met .mdate span{font-size:9.5px; color:var(--ink-soft); line-height:1.05}
+.met .mpills{display:flex; gap:5px; margin-left:auto}
+.met .mpills i{font-style:normal; font-size:10px; font-weight:700; border-radius:999px; padding:5px 10px; background:var(--paper-2); color:var(--ink-soft); box-shadow:0 1px 2px rgba(23,21,15,.06)}
+.met .mpills i.on{background:var(--ink); color:var(--paper); box-shadow:none}
+.mcard{background:var(--paper-2); border-radius:20px; box-shadow:0 1px 2px rgba(23,21,15,.05), 0 14px 28px -18px rgba(23,21,15,.22); padding:15px 16px}
+.mlbl{font-family:var(--f-mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint)}
+.mbig{font-family:var(--f-display); font-weight:800; font-size:30px; letter-spacing:-.035em; line-height:1; margin-top:8px; font-variant-numeric:tabular-nums}
+.mrow{display:flex; align-items:flex-start; justify-content:space-between; gap:10px}
+.mico{width:32px; height:32px; border-radius:50%; background:var(--paper-3); display:grid; place-items:center; flex:0 0 auto; color:var(--ink)}
+.mico svg{width:16px; height:16px}
+.mhero .mspark{display:block; width:100%; height:42px; margin-top:10px}
+.mkpis{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.mkpi{padding:14px 15px}
+.mnum{font-family:var(--f-display); font-weight:800; font-size:22px; letter-spacing:-.03em; line-height:1; margin-top:6px; font-variant-numeric:tabular-nums}
+/* La caja hoy — la única card oscura del bento */
+.mdark{background:var(--ink); color:var(--paper); display:flex; flex-direction:column; align-items:center; gap:9px}
+.mdark .mlbl{align-self:flex-start; color:rgba(243,241,233,.55)}
+.mring{position:relative; width:106px; height:106px; margin:2px 0}
+.mring .rin{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center}
+.mring .rc{font-family:var(--f-display); font-weight:800; font-size:20px; letter-spacing:-.03em; line-height:1}
+.mring .rl{font-family:var(--f-mono); font-size:8.5px; letter-spacing:.1em; text-transform:uppercase; color:rgba(243,241,233,.55); margin-top:2px}
+.mzc{width:100%; display:flex; align-items:center; gap:8px; background:rgba(243,241,233,.08); border-radius:14px; padding:9px 12px; font-size:11.5px; margin-top:auto}
+.mzc svg{width:14px; height:14px; flex:0 0 auto}
+.mzc b{color:#5FCF95}
+/* Para reponer — la única card ámbar */
+.mamber{background:var(--amber); color:var(--amber-ink)}
+.mamber .mlbl{color:var(--amber-ink)}
+.mamber .mbig{color:var(--amber-ink)}
+.mamber .mico{background:rgba(122,74,10,.16); color:var(--amber-ink)}
+.mchips{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px}
+.mchips i{font-style:normal; font-size:10px; font-weight:700; background:rgba(122,74,10,.16); color:var(--amber-ink); border-radius:999px; padding:4px 9px}
+/* Ventas por hora / evolución — barras, pico en ámbar */
+.mbars{display:flex; align-items:flex-end; gap:5px; height:66px; margin-top:12px}
+.mbars .bcol{flex:1; display:flex; flex-direction:column; align-items:center; gap:5px; justify-content:flex-end; height:100%}
+.mbars .bk{width:100%; background:var(--paper-3); border-radius:5px 5px 3px 3px; min-height:4px}
+.mbars .bk.pk{background:var(--amber)}
+.mbars .bx{font-family:var(--f-mono); font-size:8px; color:var(--ink-faint)}
 
 /* --- features grid --- */
 .feat{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
