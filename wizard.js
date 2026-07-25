@@ -5,6 +5,10 @@
    abriendo WhatsApp con el mensaje ya escrito. No hay backend: el mensaje ES el
    lead. Por eso el último paso muestra el resumen antes de mandar.
 
+   El botón de la versión de prueba usa EL MISMO formulario (mismos 4 pasos y
+   mismos datos: sin el form no hay lead). Sólo cambian los textos del paso 1,
+   el resumen y el mensaje de WhatsApp, según `estado.intencion`.
+
    Mejora progresiva: los CTA del HTML siguen siendo <a href="wa.me/...">, así
    que sin JS (o si este archivo falla) el botón sigue llevando a WhatsApp.
 
@@ -34,8 +38,28 @@
   var TOTAL_PASOS = 4;
 
   var estado = {
+    intencion: 'compra',   // 'compra' | 'prueba' — lo fija el botón que abrió el wizard
     nube: null, rubro: null, locales: null, cuando: null,
     nombre: '', tel: '', email: '', provincia: '', ciudad: '', consent: false
+  };
+
+  /* Paso 1: la nube es un add-on del programa pago, así que al que viene a
+     probar se le pregunta como interés a futuro, no como compra de hoy. */
+  var COPY_NUBE = {
+    compra: {
+      h: '¿Le sumás el dashboard en la nube?',
+      q: 'Para mirar las ventas desde el celular sin estar en el local. Son ' +
+         pesos(PRECIO_NUBE) + '/mes y lo sacás cuando quieras.',
+      si: 'Sí, lo quiero', siSub: pesos(PRECIO_NUBE) + ' por mes, opcional',
+      no: 'Ahora no', noSub: 'Lo podés sumar más adelante'
+    },
+    prueba: {
+      h: '¿Te interesa el dashboard en la nube?',
+      q: 'Es opcional y va con el programa completo: mirás las ventas desde el celular ' +
+         'sin estar en el local. Son ' + pesos(PRECIO_NUBE) + '/mes.',
+      si: 'Sí, me interesa', siSub: 'Te lo mostramos cuando lo compres',
+      no: 'Ahora no', noSub: 'Por ahora sólo quiero probarlo'
+    }
   };
   var paso = 1;
 
@@ -71,14 +95,13 @@
 
       /* 1 · dashboard */
       '<section class="wiz-slide" data-paso="1">' +
-        '<h3 tabindex="-1">¿Le sumás el dashboard en la nube?</h3>' +
-        '<p class="q">Para mirar las ventas desde el celular sin estar en el local. ' +
-          'Son ' + pesos(PRECIO_NUBE) + '/mes y lo sacás cuando quieras.</p>' +
+        '<h3 tabindex="-1" id="wiz-n-h">' + COPY_NUBE.compra.h + '</h3>' +
+        '<p class="q" id="wiz-n-q">' + COPY_NUBE.compra.q + '</p>' +
         '<div class="wiz-opts">' +
           '<button type="button" class="wiz-opt" data-nube="1">' +
-            '<b>Sí, lo quiero</b><span>' + pesos(PRECIO_NUBE) + ' por mes, opcional</span></button>' +
+            '<b>' + COPY_NUBE.compra.si + '</b><span>' + COPY_NUBE.compra.siSub + '</span></button>' +
           '<button type="button" class="wiz-opt" data-nube="0">' +
-            '<b>Ahora no</b><span>Lo podés sumar más adelante</span></button>' +
+            '<b>' + COPY_NUBE.compra.no + '</b><span>' + COPY_NUBE.compra.noSub + '</span></button>' +
         '</div>' +
       '</section>' +
 
@@ -194,10 +217,27 @@
     if (h) h.focus({ preventScroll: true });
   }
 
-  function abrir(conNube) {
+  /** Copy del paso 1 según a qué vino el visitante (comprar o probar). */
+  function pintarCopy() {
+    var c = COPY_NUBE[estado.intencion] || COPY_NUBE.compra;
+    wiz.querySelector('#wiz-n-h').textContent = c.h;
+    wiz.querySelector('#wiz-n-q').textContent = c.q;
+    var si = wiz.querySelector('[data-nube="1"]');
+    var no = wiz.querySelector('[data-nube="0"]');
+    si.querySelector('b').textContent = c.si;
+    si.querySelector('span').textContent = c.siSub;
+    no.querySelector('b').textContent = c.no;
+    no.querySelector('span').textContent = c.noSub;
+  }
+
+  /** `modo`: 'dashbox' (comprar), 'nube' (comprar + nube ya elegida), 'prueba'. */
+  function abrir(modo) {
+    estado.intencion = modo === 'prueba' ? 'prueba' : 'compra';
+    guardar();
     aOcultar.forEach(function (el) { el.classList.add('wiz-hidden'); });
     wiz.classList.add('on');
-    if (conNube) { estado.nube = true; guardar(); mostrar(2); }
+    pintarCopy();
+    if (modo === 'nube') { estado.nube = true; guardar(); mostrar(2); }
     else { mostrar(1); }
     wiz.scrollIntoView({ behavior: 'smooth', block: 'center' });
     pintarChips();
@@ -229,11 +269,20 @@
 
   function resumenTexto() {
     var n = cantLocales();
+    var prueba = estado.intencion === 'prueba';
     var l = [
-      'Hola! Quiero DASHBOX 👋', '',
-      '• Programa: DASHBOX completo — ' + pesos(PRECIO_PROGRAMA * n) + ' (pago único' +
-        (n > 1 ? ', ' + n + ' locales' : '') + ')',
-      '• Dashboard en la nube: ' + (estado.nube ? 'Sí — ' + pesos(PRECIO_NUBE) + '/mes' : 'No por ahora'),
+      prueba ? 'Hola! Quiero probar DASHBOX 👋' : 'Hola! Quiero DASHBOX 👋', '',
+      prueba
+        ? '• Quiero: la versión de prueba (hasta 5 productos, para verlo funcionar)'
+        : '• Programa: DASHBOX completo — ' + pesos(PRECIO_PROGRAMA * n) + ' (pago único' +
+          (n > 1 ? ', ' + n + ' locales' : '') + ')',
+      prueba
+        ? '• Después, el programa completo: ' + pesos(PRECIO_PROGRAMA * n) + ' (pago único' +
+          (n > 1 ? ', ' + n + ' locales' : '') + ')'
+        : null,
+      '• Dashboard en la nube: ' + (estado.nube
+        ? (prueba ? 'Me interesa — ' : 'Sí — ') + pesos(PRECIO_NUBE) + '/mes'
+        : 'No por ahora'),
       '• Rubro: ' + estado.rubro,
       '• Locales: ' + estado.locales,
       '• Para cuándo: ' + estado.cuando,
@@ -243,13 +292,14 @@
     ];
     if (estado.email) l.push('• Email: ' + estado.email);
     l.push('• Ciudad: ' + estado.ciudad + ', ' + estado.provincia);
-    return l.join('\n');
+    return l.filter(function (x) { return x !== null; }).join('\n');
   }
 
   function pintarResumen() {
+    var prueba = estado.intencion === 'prueba';
     var filas = [
-      ['Programa', 'DASHBOX completo'],
-      ['Nube', estado.nube ? 'Sí, la sumo' : 'No por ahora'],
+      ['Qué querés', prueba ? 'Probar DASHBOX antes de comprarlo' : 'DASHBOX completo'],
+      ['Nube', estado.nube ? (prueba ? 'Me interesa' : 'Sí, la sumo') : 'No por ahora'],
       ['Negocio', estado.rubro + ' · ' + estado.locales + (estado.locales === '1' ? ' local' : ' locales')],
       ['Cuándo', estado.cuando],
       ['Nombre', estado.nombre],
@@ -261,9 +311,18 @@
       return '<dt>' + f[0] + '</dt><dd>' + f[1].replace(/</g, '&lt;') + '</dd>';
     }).join('');
     var n = cantLocales();
-    var total = pesos(PRECIO_PROGRAMA * n) + ' <small>pago único' +
-      (n > 1 ? ' (' + n + ' locales)' : '') + '</small>';
-    if (estado.nube) total += '<small>+ ' + pesos(PRECIO_NUBE) + '/mes de dashboard</small>';
+    var total;
+    if (prueba) {
+      // La prueba no se cobra, pero el precio del programa va igual: que nadie
+      // llegue a WhatsApp creyendo que DASHBOX es gratis.
+      total = '$0 <small>solo para probar (hasta 5 productos)</small>' +
+        '<small>Programa completo: ' + pesos(PRECIO_PROGRAMA * n) + ' pago único' +
+        (n > 1 ? ' (' + n + ' locales)' : '') + '</small>';
+    } else {
+      total = pesos(PRECIO_PROGRAMA * n) + ' <small>pago único' +
+        (n > 1 ? ' (' + n + ' locales)' : '') + '</small>';
+      if (estado.nube) total += '<small>+ ' + pesos(PRECIO_NUBE) + '/mes de dashboard</small>';
+    }
     wiz.querySelector('#wiz-total').innerHTML = total;
   }
 
@@ -338,7 +397,7 @@
     var cta = e.target.closest('[data-wiz]');
     if (!cta) return;
     e.preventDefault();
-    abrir(cta.dataset.wiz === 'nube');
+    abrir(cta.dataset.wiz);
   });
 
   wiz.addEventListener('click', function (e) {
