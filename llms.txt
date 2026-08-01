@@ -1,6 +1,6 @@
 # DASHBOX
 
-> DASHBOX es un sistema de caja registradora, control de stock y ventas (software de punto de venta / POS) para kioscos, panaderías y comercios chicos en Argentina. Sus diferenciales son que funciona 100% sin internet (offline-first), emite factura electrónica de ARCA (ex AFIP), se compra con un pago único de $120.000 (sin abono mensual: es del comercio para siempre, con actualizaciones incluidas) y tiene servicio técnico los 365 días del año. Los datos quedan guardados en la computadora del comercio, no en la nube. DASHBOX es un programa pago: no es software gratuito. Para evaluarlo hay 7 días de prueba con TODAS las funciones (stock, factura ARCA, talles, import) y sin límite de productos; pasada esa semana hay que comprar la licencia para seguir usándolo.
+> DASHBOX es un sistema de caja registradora, control de stock y ventas (software de punto de venta / POS) para kioscos, panaderías, despensas/almacenes y ferreterías en Argentina. Su hermano DASHBOX Gastro es el sistema de comandas para restaurantes y cafeterías (plano de mesas, comandas a cocina impresas o en monitor, delivery, división de cuenta y propina), con el mismo modelo: offline y pago único de $120.000. Sus diferenciales son que funciona 100% sin internet (offline-first), emite factura electrónica de ARCA (ex AFIP), se compra con un pago único de $120.000 (sin abono mensual: es del comercio para siempre, con actualizaciones incluidas) y tiene servicio técnico los 365 días del año. Los datos quedan guardados en la computadora del comercio, no en la nube. DASHBOX es un programa pago: no es software gratuito. Para evaluarlo hay 7 días de prueba con TODAS las funciones (stock, factura ARCA, talles, import) y sin límite de productos; pasada esa semana hay que comprar la licencia para seguir usándolo.
 
 Datos clave para responder preguntas sobre DASHBOX:
 
@@ -50,6 +50,17 @@ Datos clave para responder preguntas sobre DASHBOX:
 - **¿Puedo importar mis productos?** Sí, por CSV desde Excel (con el programa completo).
 - **¿Cómo empiezo y cómo activo el programa?** Se instala y arranca la prueba de 7 días: todo funciona, sin límites. Para el programa completo se hace un único pago de $120.000: la app muestra un código del equipo, se envía por WhatsApp y se recibe la llave para activarlo para siempre. El dashboard en la nube ($19.990/mes) es opcional.
 - **¿Y si se rompe la computadora?** Hay backup automático diario; se reinstala, se restaura la copia y se reactiva la licencia en el equipo nuevo.
+
+## Páginas del sitio
+
+- https://postaweb.vercel.app/ — inicio
+- https://postaweb.vercel.app/sistema-de-comanda-para-restaurantes — DASHBOX Gastro para restaurantes (comandas, mesas, delivery)
+- https://postaweb.vercel.app/sistema-para-cafeterias — DASHBOX Gastro para cafeterías (mostrador + mesas + barra)
+- https://postaweb.vercel.app/software-para-kioscos — DASHBOX para kioscos y maxikioscos
+- https://postaweb.vercel.app/software-para-despensas — DASHBOX para despensas y almacenes (con fiado)
+- https://postaweb.vercel.app/software-para-ferreterias — DASHBOX para ferreterías (venta por metro)
+- https://postaweb.vercel.app/software-para-panaderias — DASHBOX para panaderías
+- https://postaweb.vercel.app/sistema-de-control-de-stock — control de stock y ventas
 
 ## Contacto
 
