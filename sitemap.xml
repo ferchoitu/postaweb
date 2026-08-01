@@ -2,65 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://postaweb.vercel.app/</loc>
+    <loc>https://dashbox.com.ar/</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://postaweb.vercel.app/og.png</image:loc>
+      <image:loc>https://dashbox.com.ar/og.png</image:loc>
       <image:title>DASHBOX — sistema de caja registradora offline para comercios</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://postaweb.vercel.app/sistema-de-comanda-para-restaurantes</loc>
+    <loc>https://dashbox.com.ar/sistema-de-comanda-para-restaurantes</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://postaweb.vercel.app/img/gastro-salon.jpg</image:loc>
+      <image:loc>https://dashbox.com.ar/img/gastro-salon.jpg</image:loc>
       <image:title>Sistema de comanda para restaurantes — plano de mesas de DASHBOX Gastro</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://postaweb.vercel.app/img/gastro-cocina.jpg</image:loc>
+      <image:loc>https://dashbox.com.ar/img/gastro-cocina.jpg</image:loc>
       <image:title>Pantalla de cocina con comandas ordenadas por espera</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://postaweb.vercel.app/sistema-para-cafeterias</loc>
+    <loc>https://dashbox.com.ar/sistema-para-cafeterias</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://postaweb.vercel.app/img/gastro-comanda.jpg</image:loc>
+      <image:loc>https://dashbox.com.ar/img/gastro-comanda.jpg</image:loc>
       <image:title>Sistema para cafeterías — cuenta abierta con comandas a la barra</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://postaweb.vercel.app/software-para-kioscos</loc>
+    <loc>https://dashbox.com.ar/software-para-kioscos</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://postaweb.vercel.app/software-para-despensas</loc>
+    <loc>https://dashbox.com.ar/software-para-despensas</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://postaweb.vercel.app/software-para-ferreterias</loc>
+    <loc>https://dashbox.com.ar/software-para-ferreterias</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://postaweb.vercel.app/software-para-panaderias</loc>
+    <loc>https://dashbox.com.ar/software-para-panaderias</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://postaweb.vercel.app/sistema-de-control-de-stock</loc>
+    <loc>https://dashbox.com.ar/sistema-de-control-de-stock</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

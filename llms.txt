@@ -53,17 +53,17 @@ Datos clave para responder preguntas sobre DASHBOX:
 
 ## Páginas del sitio
 
-- https://postaweb.vercel.app/ — inicio
-- https://postaweb.vercel.app/sistema-de-comanda-para-restaurantes — DASHBOX Gastro para restaurantes (comandas, mesas, delivery)
-- https://postaweb.vercel.app/sistema-para-cafeterias — DASHBOX Gastro para cafeterías (mostrador + mesas + barra)
-- https://postaweb.vercel.app/software-para-kioscos — DASHBOX para kioscos y maxikioscos
-- https://postaweb.vercel.app/software-para-despensas — DASHBOX para despensas y almacenes (con fiado)
-- https://postaweb.vercel.app/software-para-ferreterias — DASHBOX para ferreterías (venta por metro)
-- https://postaweb.vercel.app/software-para-panaderias — DASHBOX para panaderías
-- https://postaweb.vercel.app/sistema-de-control-de-stock — control de stock y ventas
+- https://dashbox.com.ar/ — inicio
+- https://dashbox.com.ar/sistema-de-comanda-para-restaurantes — DASHBOX Gastro para restaurantes (comandas, mesas, delivery)
+- https://dashbox.com.ar/sistema-para-cafeterias — DASHBOX Gastro para cafeterías (mostrador + mesas + barra)
+- https://dashbox.com.ar/software-para-kioscos — DASHBOX para kioscos y maxikioscos
+- https://dashbox.com.ar/software-para-despensas — DASHBOX para despensas y almacenes (con fiado)
+- https://dashbox.com.ar/software-para-ferreterias — DASHBOX para ferreterías (venta por metro)
+- https://dashbox.com.ar/software-para-panaderias — DASHBOX para panaderías
+- https://dashbox.com.ar/sistema-de-control-de-stock — control de stock y ventas
 
 ## Contacto
 
 - WhatsApp: +54 2226 48-2316
 - Oficinas: Libertad 845, Cañuelas, Buenos Aires, Argentina
-- Sitio: https://postaweb.vercel.app/
+- Sitio: https://dashbox.com.ar/
