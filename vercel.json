@@ -2,6 +2,13 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/descargar",
+      "destination": "https://github.com/ferchoitu/dashbox-app/releases/download/v1.8.0/DASHBOX-Setup-1.8.0.exe",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
