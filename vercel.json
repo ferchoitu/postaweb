@@ -4,8 +4,13 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/descargar",
-      "destination": "https://github.com/ferchoitu/dashbox-app/releases/download/v1.11.0/DASHBOX-Setup-1.11.0.exe",
+      "source": "/instalador",
+      "destination": "https://github.com/ferchoitu/dashbox-app/releases/download/v1.12.0/DASHBOX-Setup-1.12.0.exe",
+      "permanent": false
+    },
+    {
+      "source": "/instalador-gastro",
+      "destination": "https://github.com/ferchoitu/dashbox-gastro-app/releases/download/v1.3.0/DASHBOX-Gastro-Setup-1.3.0.exe",
       "permanent": false
     }
   ],
