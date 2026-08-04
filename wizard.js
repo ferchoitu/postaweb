@@ -20,7 +20,7 @@
 
   var WA = '5492226482316';
   var PRECIO_LISTA = 180000;    // precio de lista
-  var PRECIO_PROGRAMA = 120000; // precio de lanzamiento (primeros 10, con testimonio)
+  var PRECIO_PROGRAMA = 120000; // precio de lanzamiento (primeros 10, hasta septiembre 2026)
   var PRECIO_NUBE = 19990;
 
   /* Etiqueta de conversión de Google Ads. Cuando crees la acción
