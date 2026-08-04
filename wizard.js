@@ -19,7 +19,8 @@
   'use strict';
 
   var WA = '5492226482316';
-  var PRECIO_PROGRAMA = 120000;
+  var PRECIO_LISTA = 180000;    // precio de lista
+  var PRECIO_PROGRAMA = 120000; // precio de lanzamiento (primeros 10, con testimonio)
   var PRECIO_NUBE = 19990;
 
   /* Etiqueta de conversión de Google Ads. Cuando crees la acción
@@ -267,18 +268,23 @@
     return estado.locales === '3 o más' ? 3 : parseInt(estado.locales, 10) || 1;
   }
 
+  /** Primera llave a precio pleno; cada llave extra del mismo comercio, al 50%. */
+  function precioTotal(n) {
+    return PRECIO_PROGRAMA + (n - 1) * (PRECIO_PROGRAMA / 2);
+  }
+
   function resumenTexto() {
     var n = cantLocales();
     var prueba = estado.intencion === 'prueba';
     var l = [
       prueba ? 'Hola! Quiero probar DASHBOX 👋' : 'Hola! Quiero DASHBOX 👋', '',
       prueba
-        ? '• Quiero: la versión de prueba (hasta 5 productos, para verlo funcionar)'
-        : '• Programa: DASHBOX completo — ' + pesos(PRECIO_PROGRAMA * n) + ' (pago único' +
-          (n > 1 ? ', ' + n + ' locales' : '') + ')',
+        ? '• Quiero: la versión de prueba (7 días con el programa completo, sin tarjeta)'
+        : '• Programa: DASHBOX completo — ' + pesos(precioTotal(n)) + ' (pago único, precio de lanzamiento' +
+          (n > 1 ? ', ' + n + ' locales con 2ª llave al 50%' : '') + ')',
       prueba
-        ? '• Después, el programa completo: ' + pesos(PRECIO_PROGRAMA * n) + ' (pago único' +
-          (n > 1 ? ', ' + n + ' locales' : '') + ')'
+        ? '• Después, el programa completo: ' + pesos(precioTotal(n)) + ' (pago único, precio de lanzamiento' +
+          (n > 1 ? ', ' + n + ' locales con 2ª llave al 50%' : '') + ')'
         : null,
       '• Dashboard en la nube: ' + (estado.nube
         ? (prueba ? 'Me interesa — ' : 'Sí — ') + pesos(PRECIO_NUBE) + '/mes'
@@ -311,30 +317,40 @@
       return '<dt>' + f[0] + '</dt><dd>' + f[1].replace(/</g, '&lt;') + '</dd>';
     }).join('');
     var n = cantLocales();
+    var lanzamiento = '<small>Precio de lanzamiento — lista: ' + pesos(PRECIO_LISTA) + '</small>';
     var total;
     if (prueba) {
       // La prueba no se cobra, pero el precio del programa va igual: que nadie
       // llegue a WhatsApp creyendo que DASHBOX es gratis.
-      total = '$0 <small>solo para probar (hasta 5 productos)</small>' +
-        '<small>Programa completo: ' + pesos(PRECIO_PROGRAMA * n) + ' pago único' +
-        (n > 1 ? ' (' + n + ' locales)' : '') + '</small>';
+      total = '$0 <small>prueba de 7 días con el programa completo</small>' +
+        '<small>Después: ' + pesos(precioTotal(n)) + ' pago único' +
+        (n > 1 ? ' (' + n + ' locales, 2ª llave al 50%)' : '') + '</small>' + lanzamiento;
     } else {
-      total = pesos(PRECIO_PROGRAMA * n) + ' <small>pago único' +
-        (n > 1 ? ' (' + n + ' locales)' : '') + '</small>';
+      total = pesos(precioTotal(n)) + ' <small>pago único' +
+        (n > 1 ? ' (' + n + ' locales, 2ª llave al 50%)' : '') + '</small>' + lanzamiento;
       if (estado.nube) total += '<small>+ ' + pesos(PRECIO_NUBE) + '/mes de dashboard</small>';
     }
     wiz.querySelector('#wiz-total').innerHTML = total;
   }
 
   function conversion() {
-    if (typeof window.gtag !== 'function') return;
     var n = cantLocales();
+    var valor = precioTotal(n);
     try {
-      window.gtag('event', 'generate_lead', { currency: 'ARS', value: PRECIO_PROGRAMA * n });
-      if (CONVERSION_SEND_TO) {
-        window.gtag('event', 'conversion', {
-          send_to: CONVERSION_SEND_TO, currency: 'ARS', value: PRECIO_PROGRAMA * n
-        });
+      /* Evento para GTM: permite crear la conversión de Ads desde la interfaz
+         de Tag Manager (trigger: evento "whatsapp_lead") sin tocar código. */
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'whatsapp_lead', currency: 'ARS', value: valor,
+        intencion: estado.intencion, rubro: estado.rubro, locales: estado.locales
+      });
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', { currency: 'ARS', value: valor });
+        if (CONVERSION_SEND_TO) {
+          window.gtag('event', 'conversion', {
+            send_to: CONVERSION_SEND_TO, currency: 'ARS', value: valor
+          });
+        }
       }
     } catch (e) { /* que un error de medición nunca frene el lead */ }
   }

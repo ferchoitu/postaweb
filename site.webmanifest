@@ -5,9 +5,14 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F3F1E9",
-  "theme_color": "#0C5D7A",
+  "theme_color": "#E9A13B",
   "lang": "es-AR",
   "icons": [
-    { "src": "/logo.png", "sizes": "1080x1080", "type": "image/png", "purpose": "any" }
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
   ]
 }
