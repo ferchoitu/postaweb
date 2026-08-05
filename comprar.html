@@ -43,11 +43,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <div style="margin-top:26px; background:var(--paper-2); border:2px solid var(--amber); border-radius:var(--r); padding:24px">
+    <div style="display:grid; gap:10px; margin-bottom:16px">
+      <div>
+        <label for="nombre" style="display:block; font-weight:600; font-size:14px; margin-bottom:4px">Nombre y apellido</label>
+        <input id="nombre" autocomplete="name" style="width:100%; box-sizing:border-box; font-size:15px; padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:#fff" />
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+        <div>
+          <label for="telefono" style="display:block; font-weight:600; font-size:14px; margin-bottom:4px">Teléfono (WhatsApp)</label>
+          <input id="telefono" inputmode="tel" autocomplete="tel" placeholder="11 2345-6789" style="width:100%; box-sizing:border-box; font-size:15px; padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:#fff" />
+        </div>
+        <div>
+          <label for="email" style="display:block; font-weight:600; font-size:14px; margin-bottom:4px">Email</label>
+          <input id="email" type="email" inputmode="email" autocomplete="email" style="width:100%; box-sizing:border-box; font-size:15px; padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:#fff" />
+        </div>
+      </div>
+      <div id="error-datos" style="display:none; color:#B3362A; font-size:14px"></div>
+    </div>
     <a id="pagar" class="btn amber" href="#" style="width:100%; justify-content:center; font-size:18px; padding:16px 20px; box-sizing:border-box">
       Pagar con Mercado Pago
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
     <p style="margin:14px 0 0; font-size:14.5px">Al terminar el pago te damos tu <b>código de compra</b> (una sola línea, tipo <code class="mono" style="font-size:13px">DBX-4KM2-9XP7</code>). Lo pegás en el programa y queda activado para siempre. Nada más.</p>
+    <p class="muted" style="margin:8px 0 0; font-size:12.5px">Tus datos son sólo para poder ayudarte con tu compra (si perdés el código, te lo reenviamos). No mandamos publicidad ni los compartimos.</p>
   </div>
 
   <div style="margin-top:22px; display:grid; gap:12px">
@@ -103,12 +121,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
   if (params.get('pago') === 'fallo') document.getElementById('aviso-fallo').style.display = 'block';
 
+  // Los datos de contacto son obligatorios ANTES de ir al checkout: si el
+  // comprador se pierde (no anota el código, se cierra la pestaña), hay a
+  // quién escribirle. Viajan por POST (nunca en la URL) y quedan guardados
+  // en el registro de la compra del servidor.
+  function contacto() {
+    var nombre = document.getElementById('nombre').value.trim();
+    var telefono = document.getElementById('telefono').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var err = document.getElementById('error-datos');
+    var falta =
+      nombre.length < 3 ? 'tu nombre y apellido'
+      : telefono.replace(/\D/g, '').length < 8 ? 'un teléfono válido'
+      : !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ? 'un email válido'
+      : null;
+    if (falta) {
+      err.style.display = 'block';
+      err.textContent = 'Completá ' + falta + ' antes de pagar — es para poder ayudarte si algo sale mal.';
+      return null;
+    }
+    err.style.display = 'none';
+    return { nombre: nombre, telefono: telefono, email: email };
+  }
+
+  function irAPagar(boton, ref, modo) {
+    var datos = contacto();
+    if (!datos) return;
+    boton.setAttribute('aria-busy', 'true');
+    var textoOriginal = boton.textContent;
+    boton.textContent = 'Preparando el pago…';
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'pago_iniciado', producto: producto, modo: modo });
+    fetch(SERVIDOR, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ producto: producto, ref: ref, nombre: datos.nombre, telefono: datos.telefono, email: datos.email }),
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (r) {
+        if (r.url) { location.href = r.url; return; }
+        throw new Error(r.error || 'sin url');
+      })
+      .catch(function () {
+        boton.textContent = textoOriginal;
+        boton.removeAttribute('aria-busy');
+        var err = document.getElementById('error-datos');
+        err.style.display = 'block';
+        err.textContent = 'No pudimos iniciar el pago. Probá de nuevo en un minuto o escribinos por WhatsApp.';
+      });
+  }
+
   // Camino principal: pagar sin código. El voucher lo genera el server.
   document.getElementById('pagar').addEventListener('click', function (e) {
     e.preventDefault();
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'pago_iniciado', producto: producto, modo: 'voucher' });
-    location.href = SERVIDOR + '?producto=' + producto;
+    irAPagar(this, '', 'voucher');
   });
 
   // Camino "ya instalado": pagar con el código del equipo → se activa solo.
@@ -125,9 +191,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return;
     }
     error.style.display = 'none';
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'pago_iniciado', producto: producto, modo: 'device' });
-    location.href = SERVIDOR + '?producto=' + producto + '&ref=' + encodeURIComponent(codigo);
+    irAPagar(this, codigo, 'device');
   });
 })();
 </script>
