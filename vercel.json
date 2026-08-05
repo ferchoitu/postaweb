@@ -10,7 +10,7 @@
     },
     {
       "source": "/instalador-gastro",
-      "destination": "https://github.com/ferchoitu/dashbox-gastro-app/releases/download/v1.4.0/DASHBOX-Gastro-Setup-1.4.0.exe",
+      "destination": "https://github.com/ferchoitu/dashbox-gastro-app/releases/download/v1.4.1/DASHBOX-Gastro-Setup-1.4.1.exe",
       "permanent": false
     }
   ],
