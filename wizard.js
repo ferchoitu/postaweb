@@ -19,8 +19,12 @@
   'use strict';
 
   var WA = '5492226482316';
-  var PRECIO_LISTA = 180000;    // precio de lista
-  var PRECIO_PROGRAMA = 120000; // precio de lanzamiento (primeros 10, hasta septiembre 2026)
+  // Membresía: se puede pagar el año entero o mes a mes. El año sale más
+  // barato que los doce meses sueltos ($320.000 contra $420.000) y por eso es
+  // el que se muestra como titular; el mensual va siempre al lado, porque el
+  // que no puede poner el año de una tiene que ver que igual entra.
+  var PRECIO_ANUAL = 320000;
+  var PRECIO_MENSUAL = 35000;
   var PRECIO_NUBE = 19990;
 
   /* Etiqueta de conversión de Google Ads. Cuando crees la acción
@@ -270,7 +274,18 @@
 
   /** Primera llave a precio pleno; cada llave extra del mismo comercio, al 50%. */
   function precioTotal(n) {
-    return PRECIO_PROGRAMA + (n - 1) * (PRECIO_PROGRAMA / 2);
+    return PRECIO_ANUAL + (n - 1) * (PRECIO_ANUAL / 2);
+  }
+
+  /** Lo mismo, pero para el que prefiere ir mes a mes. */
+  function precioMensual(n) {
+    return PRECIO_MENSUAL + (n - 1) * (PRECIO_MENSUAL / 2);
+  }
+
+  /** "$320.000 por año, o $35.000 por mes" + los locales, si son varios. */
+  function detallePlan(n) {
+    return pesos(precioTotal(n)) + ' por año, o ' + pesos(precioMensual(n)) + ' por mes' +
+      (n > 1 ? ' (' + n + ' locales, 2ª llave al 50%)' : '');
   }
 
   function resumenTexto() {
@@ -280,11 +295,9 @@
       prueba ? 'Hola! Quiero probar DASHBOX 👋' : 'Hola! Quiero DASHBOX 👋', '',
       prueba
         ? '• Quiero: la versión de prueba (7 días con el programa completo, sin tarjeta)'
-        : '• Programa: DASHBOX completo — ' + pesos(precioTotal(n)) + ' (pago único, precio de lanzamiento' +
-          (n > 1 ? ', ' + n + ' locales con 2ª llave al 50%' : '') + ')',
+        : '• Programa: DASHBOX completo — ' + detallePlan(n),
       prueba
-        ? '• Después, el programa completo: ' + pesos(precioTotal(n)) + ' (pago único, precio de lanzamiento' +
-          (n > 1 ? ', ' + n + ' locales con 2ª llave al 50%' : '') + ')'
+        ? '• Después, el programa completo: ' + detallePlan(n)
         : null,
       '• Dashboard en la nube: ' + (estado.nube
         ? (prueba ? 'Me interesa — ' : 'Sí — ') + pesos(PRECIO_NUBE) + '/mes'
@@ -317,17 +330,17 @@
       return '<dt>' + f[0] + '</dt><dd>' + f[1].replace(/</g, '&lt;') + '</dd>';
     }).join('');
     var n = cantLocales();
-    var lanzamiento = '<small>Precio de lanzamiento — lista: ' + pesos(PRECIO_LISTA) + '</small>';
+    var alternativa = '<small>O ' + pesos(precioMensual(n)) + ' por mes, si preferís ir mes a mes</small>';
     var total;
     if (prueba) {
       // La prueba no se cobra, pero el precio del programa va igual: que nadie
       // llegue a WhatsApp creyendo que DASHBOX es gratis.
       total = '$0 <small>prueba de 7 días con el programa completo</small>' +
-        '<small>Después: ' + pesos(precioTotal(n)) + ' pago único' +
-        (n > 1 ? ' (' + n + ' locales, 2ª llave al 50%)' : '') + '</small>' + lanzamiento;
+        '<small>Después: ' + pesos(precioTotal(n)) + ' por año' +
+        (n > 1 ? ' (' + n + ' locales, 2ª llave al 50%)' : '') + '</small>' + alternativa;
     } else {
-      total = pesos(precioTotal(n)) + ' <small>pago único' +
-        (n > 1 ? ' (' + n + ' locales, 2ª llave al 50%)' : '') + '</small>' + lanzamiento;
+      total = pesos(precioTotal(n)) + ' <small>por año' +
+        (n > 1 ? ' (' + n + ' locales, 2ª llave al 50%)' : '') + '</small>' + alternativa;
       if (estado.nube) total += '<small>+ ' + pesos(PRECIO_NUBE) + '/mes de dashboard</small>';
     }
     wiz.querySelector('#wiz-total').innerHTML = total;
