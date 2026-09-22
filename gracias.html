@@ -12,7 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 <title>¡Gracias! Tu compra de DASHBOX</title>
-<meta name="description" content="Compra confirmada. Acá está tu código para activar DASHBOX." />
+<meta name="description" content="Compra confirmada. Acá está tu descarga de DASHBOX." />
 <meta name="robots" content="noindex, nofollow" />
 <link rel="icon" href="/favicon.png" type="image/png" />
 <link rel="apple-touch-icon" href="/favicon.png" />
@@ -39,7 +39,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Compra con VOUCHER (desde la web, sin código de equipo) -->
   <div id="modo-voucher" style="display:none">
-    <p class="lead" style="margin-top:14px">Este es tu <b>código de compra</b>. Es lo único que necesitás — <b>guardalo</b> (sacale una foto, mandátelo por WhatsApp, lo que sea):</p>
+    <p class="lead" style="margin-top:14px" id="bajada-voucher"><b>Abajo está tu descarga.</b> Y éste es tu <b>código de compra</b>: <b>guardalo</b> (sacale una foto, mandátelo por WhatsApp, lo que sea) — te lo vamos a pedir si alguna vez necesitás soporte o reinstalar.</p>
     <div style="margin-top:18px; background:var(--paper-2); border:2px solid var(--amber); border-radius:var(--r); padding:26px; text-align:center">
       <div id="voucher" class="mono" style="font-size:clamp(26px,6vw,40px); font-weight:700; letter-spacing:.06em; user-select:all">—</div>
       <button id="copiar" class="btn amber" style="margin-top:16px; cursor:pointer; border:0">Copiar el código</button>
@@ -48,25 +48,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="pendiente" style="display:none; margin-top:14px; background:#FDF3E3; border:1px solid #E8CC9C; border-radius:var(--r); padding:14px 18px; font-size:14.5px">
       Tu pago figura <b>pendiente de acreditación</b> (pasa con algunos medios de pago). El código ya es tuyo: apenas se acredite, va a funcionar solo.
     </div>
-    <div style="margin-top:22px; background:var(--paper-2); border:1px solid var(--line); border-radius:var(--r); padding:16px 20px">
-      <div class="mono" style="font-size:12.5px; color:var(--green); font-weight:700; letter-spacing:.14em">CÓMO ACTIVARLO</div>
-      <p style="margin:6px 0 0; font-size:14.5px"><b>1.</b> <a id="link-descarga" href="/descargar" target="_blank" rel="noopener" style="color:var(--green); font-weight:700">Descargá e instalá el programa</a> en la compu del mostrador (si ya lo tenés, salteá este paso).<br/>
-      <b>2.</b> Abrilo, andá a <b>Config → Licencia</b> (o esperá la pantalla del final de la prueba) y <b>pegá el código</b>.<br/>
-      <b>3.</b> Listo: activado todo el año, con actualizaciones incluidas.</p>
+    <div style="margin-top:22px; background:var(--paper-2); border:2px solid var(--amber); border-radius:var(--r); padding:16px 20px">
+      <div class="mono" style="font-size:12.5px; color:var(--amber-ink); font-weight:700; letter-spacing:.14em">TU DESCARGA</div>
+      <p style="margin:6px 0 0; font-size:14.5px"><b>1.</b> <a id="link-descarga" href="/instalador" target="_blank" rel="noopener" style="color:var(--green); font-weight:700">Descargá e instalá el programa</a> en la compu del mostrador (si ya lo tenés, salteá este paso).<br/>
+      <b>2.</b> Windows puede avisarte que «protegió tu equipo» porque el programa es nuevo: tocá <b>«Más información»</b> → <b>«Ejecutar de todas formas»</b>.<br/>
+      <b id="paso-3">3.</b> <span id="texto-paso-3">Listo, ya podés vender. <b>No hay nada que activar</b> y no vence nunca.</span></p>
+      <p style="margin:10px 0 0; font-size:13px; color:var(--ink-faint)">Guardá este link: es el mismo que usás si alguna vez tenés que reinstalar. Si lo perdés, escribinos por WhatsApp.</p>
     </div>
   </div>
 
   <!-- Compra con DEVICE (desde el programa o /comprar con código de equipo) -->
   <div id="modo-device" style="display:none">
-    <p class="lead" style="margin-top:14px"><b>No tenés que hacer nada más.</b> El programa se activa solo apenas el pago se acredita — dejalo abierto y en unos minutos (como mucho) vas a ver el aviso de que quedó activado todo el año.</p>
+    <p class="lead" style="margin-top:14px"><b>No tenés que hacer nada más.</b> Tu compra quedó registrada y el programa que ya tenés instalado sigue andando igual: no hay nada que activar ni que renovar.</p>
     <div style="margin-top:18px; background:var(--paper-2); border:1px solid var(--line); border-radius:var(--r); padding:16px 20px; font-size:14.5px">
-      Si pasó un rato largo y no se activó: cerralo y abrilo de nuevo (busca su llave al arrancar), o escribinos y lo resolvemos en el momento.
+      ¿Necesitás el instalador de nuevo, o querés que te demos una mano con la puesta a punto? Escribinos y lo resolvemos en el momento.
     </div>
   </div>
 
   <!-- Sin datos en la URL -->
   <div id="modo-generico" style="display:none">
-    <p class="lead" style="margin-top:14px">Tu pago fue recibido. Si viniste desde el programa, se activa solo; si compraste desde la web, tu código de compra apareció en la pantalla anterior — y si lo perdiste, escribinos por WhatsApp con tu comprobante de pago y te lo pasamos al toque.</p>
+    <p class="lead" style="margin-top:14px">Tu pago fue recibido. El link de descarga apareció en la pantalla anterior — si lo perdiste, escribinos por WhatsApp con tu comprobante y te lo pasamos al toque.</p>
   </div>
 
   <div class="cta-row" style="margin-top:26px">
@@ -96,6 +97,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.getElementById('np').textContent = 'DASHBOX Gastro';
     var d = document.getElementById('link-descarga');
     if (d) d.href = '/instalador-gastro';
+    // ⚠️ Gastro TODAVÍA tiene licencia en el programa (a Stock se le sacó el
+    // 2026-09-22). Hasta que se le haga el mismo trabajo, su paso 3 sigue
+    // siendo pegar el código — y la llave que se le emite va `--perpetua`,
+    // porque el precio que pagó dice "una sola vez". Ver
+    // docs/comercial/precios-y-oferta.md en la carpeta matriz.
+    var bv = document.getElementById('bajada-voucher');
+    if (bv) bv.innerHTML = 'Éste es tu <b>código de compra</b>: es el que <b>activa el programa</b>, así que <b>guardalo</b> (sacale una foto, mandátelo por WhatsApp, lo que sea).';
+    var p3 = document.getElementById('texto-paso-3');
+    if (p3) p3.innerHTML = 'Abrilo, andá a <b>Config \u2192 Licencia</b> y <b>pegá el código de arriba</b>. Queda activado para siempre.';
   }
 
   window.dataLayer = window.dataLayer || [];
