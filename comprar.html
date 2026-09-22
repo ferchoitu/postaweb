@@ -71,7 +71,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div style="margin-top:22px; display:grid; gap:12px">
     <div style="background:var(--paper-2); border:1px solid var(--line); border-radius:var(--r); padding:16px 20px">
       <div class="mono" style="font-size:12.5px; color:var(--green); font-weight:700; letter-spacing:.14em">DESPUÉS DE PAGAR</div>
-      <p style="margin:6px 0 0; font-size:14.5px"><b>1.</b> Te aparece <a id="link-descarga" href="/instalador" target="_blank" rel="noopener" style="color:var(--green); font-weight:700">el link de descarga</a> en la pantalla siguiente (también te lo mandamos por WhatsApp).<br/>
+      <!-- ⚠️ "el link de descarga" es TEXTO, no un enlace, y no puede volver a
+           serlo. Estuvo como <a href="/instalador"> y eso dejaba el programa a
+           un clic de distancia, gratis, en la página de compra: sin licencia el
+           instalador ES el producto, así que el único lugar donde puede vivir
+           el link es /gracias, después de pagar. -->
+      <p style="margin:6px 0 0; font-size:14.5px"><b>1.</b> Te aparece <b>el link de descarga</b> en la pantalla siguiente (también te lo mandamos por WhatsApp).<br/>
       <b>2.</b> Lo instalás en la compu del mostrador. Si Windows avisa que el programa es nuevo: «Más información» → «Ejecutar de todas formas».<br/>
       <b>3.</b> Listo, ya podés vender. <b>No hay nada que activar.</b></p>
     </div>
@@ -109,7 +114,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   if (producto === 'gastro') {
     document.querySelectorAll('.np').forEach(function (n) { n.textContent = 'DASHBOX Gastro'; });
     document.title = 'Comprar DASHBOX Gastro — pago único por Mercado Pago';
-    document.getElementById('link-descarga').href = '/instalador-gastro';
     document.getElementById('link-wa').href =
       'https://wa.me/5492226482316?text=' + encodeURIComponent('Hola! Quiero comprar DASHBOX Gastro y tengo una consulta');
   }
