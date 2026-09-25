@@ -5,7 +5,7 @@
   "redirects": [
     {
       "source": "/instalador",
-      "destination": "https://github.com/ferchoitu/dashbox-app/releases/download/v1.26.1/DASHBOX-Setup-1.26.1.exe",
+      "destination": "https://github.com/ferchoitu/dashbox-app/releases/download/v1.27.0/DASHBOX-Setup-1.27.0.exe",
       "permanent": false
     },
     {
