@@ -544,3 +544,16 @@ footer .brand{font-size:18px}
   .wa-flotante:focus-visible{outline:3px solid var(--amber); outline-offset:3px}
   body{padding-bottom:76px}
 }
+
+/* /comprar: opciones de la compra como tarjetas tocables. */
+.opciones{border:0; margin:0; padding:0; display:grid; gap:10px}
+.opciones legend{font-weight:700; font-size:16px; margin-bottom:10px; padding:0}
+.opcion{display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:start; padding:14px 16px; background:#fff; border:2px solid var(--line); border-radius:12px; cursor:pointer}
+.opcion:has(input:checked){border-color:var(--green); box-shadow:0 0 0 3px color-mix(in srgb, var(--green) 18%, transparent)}
+.opcion input{margin:3px 0 0; width:18px; height:18px; accent-color:var(--green)}
+.opcion input:focus-visible{outline:3px solid var(--amber); outline-offset:2px}
+.opcion small{display:block; color:var(--ink-soft); font-size:13.5px; margin-top:2px; line-height:1.4}
+.opcion-precio{font-weight:700; text-align:right; white-space:nowrap}
+.opcion-precio small{display:block; font-weight:500; font-size:12px; color:var(--ink-soft)}
+.total-compra{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); font-size:15px}
+.total-compra b{font-size:18px}

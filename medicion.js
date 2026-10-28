@@ -5,10 +5,11 @@
    el sitio. Los eventos de la web:
 
    - whatsapp_click     clic en cualquier link a wa.me (este archivo)
-   - whatsapp_lead      el cotizador terminado que abre WhatsApp (wizard.js)
+   - whatsapp_lead      el cotizador terminado (wizard.js) o "Seguir por
+                        WhatsApp" en /comprar, con valor y si quiere facturación
    - ver_precios        clic hacia /comprar (este archivo)
-   - pago_iniciado      el botón de pagar en /comprar
-   - compra_confirmada  /gracias, recién con el pago verificado contra MP
+
+   Un link con data-medicion="propia" manda su propio evento y acá no se cuenta.
 
    Un error de medición nunca puede frenar un clic: todo va en try/catch. */
 (function () {
@@ -22,7 +23,7 @@
   document.addEventListener('click', function (e) {
     try {
       var a = e.target.closest && e.target.closest('a[href]');
-      if (!a) return;
+      if (!a || a.getAttribute('data-medicion') === 'propia') return;
       var href = a.getAttribute('href') || '';
       var texto = (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60);
       if (href.indexOf('wa.me/') !== -1) {

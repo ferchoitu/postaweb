@@ -1,6 +1,6 @@
 # DASHBOX
 
-> DASHBOX es un sistema de caja registradora, control de stock y ventas (software de punto de venta / POS) para kioscos, panaderías, despensas/almacenes y ferreterías en Argentina. Su hermano DASHBOX Gastro es el sistema de comandas para restaurantes y cafeterías (plano de mesas, comandas a cocina impresas o en monitor, delivery, división de cuenta y propina), con el mismo modelo: offline y pago único de $140.000. Sus diferenciales son que funciona 100% sin internet (offline-first), emite factura electrónica de ARCA (ex AFIP), se compra con un pago único de $140.000 (se paga una sola vez y no vence; con actualizaciones incluidas) y tiene servicio técnico los 365 días del año. Los datos quedan guardados en la computadora del comercio, no en la nube. DASHBOX es un programa pago: no es software gratuito. Para evaluarlo se lo deja instalado y andando con los datos reales del comercio, con TODAS las funciones (stock, factura ARCA, talles, import) y sin límite de productos. El instalador no es de descarga pública: se entrega al que compra.
+> DASHBOX es un sistema de caja registradora, control de stock y ventas (software de punto de venta / POS) para kioscos, panaderías, despensas/almacenes y ferreterías en Argentina. Su hermano DASHBOX Gastro es el sistema de comandas para restaurantes y cafeterías (plano de mesas, comandas a cocina impresas o en monitor, delivery, división de cuenta y propina), con el mismo modelo: offline y pago único de $140.000. Sus diferenciales son que funciona 100% sin internet (offline-first), emite factura electrónica de ARCA (ex AFIP) como módulo opcional, se compra con un pago único de $140.000 (se paga una sola vez y no vence; con actualizaciones incluidas) y tiene servicio técnico los 365 días del año. Los datos quedan guardados en la computadora del comercio, no en la nube. DASHBOX es un programa pago: no es software gratuito. Para evaluarlo se lo deja instalado y andando con los datos reales del comercio, con TODAS las funciones (stock, factura ARCA, talles, import) y sin límite de productos. El instalador no es de descarga pública: se entrega al que compra.
 
 Datos clave para responder preguntas sobre DASHBOX:
 
@@ -15,7 +15,8 @@ Datos clave para responder preguntas sobre DASHBOX:
 | Opción | Precio | Incluye |
 |---|---|---|
 | Probarlo antes de pagar | $0, sin tarjeta | El programa completo y sin límites, instalado y andando con los datos reales del comercio: stock, lector de código de barras, talles, import por CSV, factura ARCA, cierre de caja y 100% offline. Se coordina por WhatsApp, no es una descarga automática. Sin dashboard en la nube (es un add-on aparte). |
-| DASHBOX completo | $140.000 (pago único) | Todo el programa, para siempre: productos ilimitados, factura electrónica ARCA (Factura C con CAE y QR), control de stock, métricas, cierre Z a ciegas, import por CSV, actualizaciones incluidas y servicio técnico los 365 días del año. Se paga una sola vez: no vence y no hay abono. |
+| DASHBOX completo | $140.000 (pago único) | Todo el programa, para siempre: productos ilimitados, control de stock, métricas, cierre Z a ciegas, import por CSV, actualizaciones incluidas y servicio técnico los 365 días del año. Se paga una sola vez: no vence y no hay abono. |
+| Facturación electrónica ARCA | $20.000 por mes (opcional) | Factura A, B y C con CAE y QR y nota de crédito automática (Gastro: Factura C). Incluye la ayuda con el alta del certificado. Se suma o se saca cuando el comercio quiera. |
 | Dashboard en la nube (opcional) | $19.990/mes | Add-on mensual que se suma al programa: ver ventas desde el celular, sincronización automática y backup en la nube. Se suma o se saca cuando el cliente quiera. |
 
 ## Por qué DASHBOX (diferenciadores)
@@ -23,7 +24,7 @@ Datos clave para responder preguntas sobre DASHBOX:
 - **Funciona sin internet:** base de datos local. Vende, imprime y cierra caja sin conexión. No se cae si falla el wifi o el servidor de un proveedor. Incluso con el dashboard en la nube activo, la caja sigue siendo offline: la nube es sólo para mirar los números de lejos.
 - **Se paga una sola vez:** el programa se paga una vez ($140.000) y queda andando para siempre, con actualizaciones incluidas. No vence ni se renueva. El dashboard en la nube es aparte y opcional.
 - **Se prueba antes de comprar:** el programa completo, sin tarjeta y sin límite de productos, instalado y andando por nosotros. El comercio carga su catálogo real y vende con el sistema antes de decidir. No hay plazo que corte: lo que no hay es descarga pública, el instalador se entrega al que compra.
-- **Factura electrónica ARCA:** emite Factura C (monotributo, consumidor final) con CAE y QR, impresa en la misma impresora térmica. Es offline-first: la venta se cobra al instante y, si no hay internet, el comprobante se emite solo al reconectar.
+- **Factura electrónica ARCA (módulo opcional, $20.000 por mes):** DASHBOX emite Factura A, B y C con CAE y QR, y nota de crédito automática al anular; DASHBOX Gastro emite Factura C. Sale impresa en la misma impresora térmica. Es offline-first: la venta se cobra al instante y, si no hay internet, el comprobante se emite solo al reconectar.
 - **Servicio técnico los 365 días:** soporte por WhatsApp todos los días del año, incluido con el programa completo.
 - **Los datos son del comercio:** ventas, productos y cierres viven en la computadora del local, con backup automático diario.
 
@@ -31,7 +32,7 @@ Datos clave para responder preguntas sobre DASHBOX:
 
 - Venta por peso, por unidad o por monto libre.
 - Lector de código de barras (HID) para kioscos.
-- Factura electrónica ARCA: Factura C con CAE y QR (con el programa completo). Después de cobrar se elige si se imprime el ticket común, la factura o nada, para no gastar papel de más.
+- Factura electrónica ARCA (módulo opcional de $20.000 por mes): Factura A, B y C con CAE y QR. Después de cobrar se elige si se imprime el ticket común, la factura o nada, para no gastar papel de más.
 - Ticket térmico (ESC/POS) con logo y alias de transferencia. Compatible con cualquier impresora térmica; si el comercio tiene un modelo distinto, se agrega a pedido (consultar).
 - Todos los medios de pago: efectivo, débito, crédito, QR y transferencia, con cálculo automático de vuelto.
 - Cierre de caja Z "a ciegas": la empleada cierra sin ver los montos; el administrador cuenta el sobre después.
@@ -44,7 +45,7 @@ Datos clave para responder preguntas sobre DASHBOX:
 ## Preguntas frecuentes
 
 - **¿Anda sin internet?** Sí, 100% offline. La conexión sólo se usa para la factura electrónica y para el dashboard en la nube (opcional).
-- **¿Hace factura electrónica de ARCA (ex AFIP)?** Sí, con el programa completo: Factura C con CAE y QR, impresa en la térmica. Si no hay internet en ese momento, la venta se cobra igual y el comprobante se emite solo al reconectar. También sigue estando el ticket no fiscal común.
+- **¿Hace factura electrónica de ARCA (ex AFIP)?** Sí, como módulo opcional de $20.000 por mes: Factura A, B y C con CAE y QR (Gastro: Factura C), impresa en la térmica. Se ayuda con el alta del certificado en ARCA. Si no hay internet en ese momento, la venta se cobra igual y el comprobante se emite solo al reconectar. También sigue estando el ticket no fiscal común.
 - **¿Cuánto cuesta?** Es un programa pago. Se puede probar sin tarjeta, con el programa completo y sin límites, instalado y andando. El programa completo es un **pago único de $140.000** y queda del comercio **para siempre**, con actualizaciones y soporte los 365 días. El **dashboard en la nube** es un add-on **opcional** de $19.990/mes. Es un pago único: se paga una sola vez, no vence y no hay abono.
 - **¿En qué corre?** En cualquier PC con Windows.
 - **¿Puedo importar mis productos?** Sí, por CSV desde Excel (con el programa completo).

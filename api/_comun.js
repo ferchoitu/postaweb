@@ -1,6 +1,11 @@
 // Lo que comparten /api/pago y /api/verificar. El prefijo `_` hace que Vercel
 // no lo publique como función: sólo se importa.
 //
+// ⚠️ INERTES desde el 2026-10-28: toda venta cierra por WhatsApp (alias y
+// ayuda con la instalación), así que ninguna página llama a /api/pago. Quedan
+// escritas para el día que se vuelva a cobrar en la web: alcanza con cargar
+// MP_ACCESS_TOKEN en Vercel y que /comprar vuelva a llamarlas.
+//
 // El precio de cara al negocio se decide en la matriz
 // (docs/comercial/precios-y-oferta.md). Si difieren, gana el documento y se
 // corrige acá.
