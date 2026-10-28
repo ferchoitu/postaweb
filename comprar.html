@@ -64,8 +64,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       Pagar con Mercado Pago
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
-    <p style="margin:14px 0 0; font-size:14.5px">Al terminar el pago te damos <b>el link de descarga</b> del programa, y tu <b>código de compra</b> por si alguna vez tenés que reinstalar o pedirnos una mano. Nada más: DASHBOX no se activa con ninguna llave.</p>
-    <p class="muted" style="margin:8px 0 0; font-size:12.5px">Tus datos son sólo para poder ayudarte con tu compra (si perdés el código, te lo reenviamos). No mandamos publicidad ni los compartimos.</p>
+    <p style="margin:14px 0 0; font-size:14.5px">Al terminar el pago te damos <b>el link de descarga</b> del programa. Guardá el comprobante de Mercado Pago: con él te reenviamos el link si alguna vez tenés que reinstalar. Nada más: DASHBOX no se activa con ninguna llave.</p>
+    <p class="muted" style="margin:8px 0 0; font-size:12.5px">Tus datos son sólo para poder ayudarte con tu compra (si perdés el link, te lo reenviamos). No mandamos publicidad ni los compartimos.</p>
   </div>
 
   <div style="margin-top:22px; display:grid; gap:12px">
@@ -76,7 +76,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
            un clic de distancia, gratis, en la página de compra: sin licencia el
            instalador ES el producto, así que el único lugar donde puede vivir
            el link es /gracias, después de pagar. -->
-      <p style="margin:6px 0 0; font-size:14.5px"><b>1.</b> Te aparece <b>el link de descarga</b> en la pantalla siguiente (también te lo mandamos por WhatsApp).<br/>
+      <p style="margin:6px 0 0; font-size:14.5px"><b>1.</b> Te aparece <b>el link de descarga</b> en la pantalla siguiente (si lo perdés, te lo mandamos por WhatsApp).<br/>
       <b>2.</b> Lo instalás en la compu del mostrador. Si Windows avisa que el programa es nuevo: «Más información» → «Ejecutar de todas formas».<br/>
       <b>3.</b> Listo, ya podés vender. <b>No hay nada que activar.</b></p>
     </div>
@@ -104,11 +104,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 (function () {
-  // ?producto=gastro cambia nombre, descarga y destino del pago. El servidor
-  // de licencias crea la preferencia de MP y redirige al checkout. SIN ref el
-  // server genera el voucher (código de compra); CON ref (device) el webhook
-  // activa esa máquina sola.
-  var SERVIDOR = 'https://ftqfoqanvqmzsfcyfxfy.supabase.co/functions/v1/licencias/pago';
+  // ?producto=gastro cambia nombre, descarga y destino del pago. /api/pago
+  // (función de Vercel, en este mismo repo) crea la preferencia de MP y
+  // devuelve el link del checkout.
+  var SERVIDOR = '/api/pago';
+  var PRECIO = 140000;
   var params = new URLSearchParams(location.search);
   var producto = params.get('producto') === 'gastro' ? 'gastro' : 'dashbox';
   if (producto === 'gastro') {
@@ -121,8 +121,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   // Los datos de contacto son obligatorios ANTES de ir al checkout: si el
   // comprador se pierde (no anota el código, se cierra la pestaña), hay a
-  // quién escribirle. Viajan por POST (nunca en la URL) y quedan guardados
-  // en el registro de la compra del servidor.
+  // quién escribirle. Viajan por POST (nunca en la URL) y quedan en la
+  // metadata del pago en Mercado Pago.
   function contacto() {
     var nombre = document.getElementById('nombre').value.trim();
     var telefono = document.getElementById('telefono').value.trim();
@@ -142,18 +142,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     return { nombre: nombre, telefono: telefono, email: email };
   }
 
-  function irAPagar(boton, ref, modo) {
+  function irAPagar(boton) {
     var datos = contacto();
     if (!datos) return;
     boton.setAttribute('aria-busy', 'true');
     var textoOriginal = boton.textContent;
     boton.textContent = 'Preparando el pago…';
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'pago_iniciado', producto: producto, modo: modo });
+    window.dataLayer.push({ event: 'pago_iniciado', producto: producto, value: PRECIO, currency: 'ARS' });
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'begin_checkout', { currency: 'ARS', value: PRECIO, items: [{ item_id: producto }] });
+    }
     fetch(SERVIDOR, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ producto: producto, ref: ref, nombre: datos.nombre, telefono: datos.telefono, email: datos.email }),
+      body: JSON.stringify({ producto: producto, nombre: datos.nombre, telefono: datos.telefono, email: datos.email }),
     })
       .then(function (r) { return r.json(); })
       .then(function (r) {
@@ -169,10 +172,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
   }
 
-  // Camino principal: pagar sin código. El voucher lo genera el server.
   document.getElementById('pagar').addEventListener('click', function (e) {
     e.preventDefault();
-    irAPagar(this, '', 'voucher');
+    irAPagar(this);
   });
 
   // ⚠️ Acá estaba el camino "pagar con el código del equipo y que se active
@@ -182,5 +184,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // botón de pagar de arriba, que se registra antes en el mismo script.
 })();
 </script>
+<script src="/medicion.js" defer></script>
 </body>
 </html>

@@ -529,3 +529,18 @@ footer .brand{font-size:18px}
 .wiz-hidden{display:none !important}
 .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
   clip:rect(0 0 0 0); white-space:nowrap; border:0}
+
+/* Botón flotante de WhatsApp: sólo en el teléfono, donde la nav se queda sin
+   enlaces y llega casi todo el tráfico de Meta. Va en el HTML (no lo inyecta
+   JS) para que ande igual sin scripts; medicion.js lo cuenta como cualquier
+   otro clic a wa.me. */
+.wa-flotante{display:none}
+@media (max-width:760px){
+  .wa-flotante{
+    display:flex; align-items:center; gap:8px; position:fixed; right:16px; bottom:16px; z-index:40;
+    background:#187A47; color:#fff; font-weight:700; font-size:15px; text-decoration:none;
+    padding:13px 18px; border-radius:999px; box-shadow:0 6px 20px rgba(11,14,19,.28);
+  }
+  .wa-flotante:focus-visible{outline:3px solid var(--amber); outline-offset:3px}
+  body{padding-bottom:76px}
+}

@@ -19,12 +19,11 @@
   'use strict';
 
   var WA = '5492226482316';
-  // Membresía: se puede pagar el año entero o mes a mes. El año sale más
-  // barato que los doce meses sueltos ($320.000 contra $420.000) y por eso es
-  // el que se muestra como titular; el mensual va siempre al lado, porque el
-  // que no puede poner el año de una tiene que ver que igual entra.
-  var PRECIO_ANUAL = 320000;
-  var PRECIO_MENSUAL = 35000;
+  // Pago único (2026-10-28): la primera computadora a precio pleno y cada una
+  // más del mismo comercio a precio fijo. La fuente es
+  // docs/comercial/precios-y-oferta.md de la matriz.
+  var PRECIO_UNICO = 140000;
+  var PRECIO_PC_EXTRA = 60000;
   var PRECIO_NUBE = 19990;
 
   /* Etiqueta de conversión de Google Ads. Cuando crees la acción
@@ -117,7 +116,7 @@
         '<div class="wiz-group"><p>¿Qué tenés?</p><div class="chips">' +
           chips('rubro', ['Kiosco', 'Maxikiosco', 'Panadería', 'Almacén', 'Verdulería', 'Otro']) +
         '</div></div>' +
-        '<div class="wiz-group"><p>¿Cuántos locales?</p><div class="chips">' +
+        '<div class="wiz-group"><p>¿En cuántas computadoras lo vas a usar?</p><div class="chips">' +
           chips('locales', ['1', '2', '3 o más']) +
         '</div></div>' +
         '<div class="wiz-group"><p>¿Para cuándo lo necesitás?</p><div class="chips">' +
@@ -267,25 +266,23 @@
     if (c) c.checked = !!estado.consent;
   }
 
-  /** La licencia es por comercio: 2 locales = 2 licencias. */
+  /** Se paga por computadora: 2 computadoras = la primera + una extra. */
   function cantLocales() {
     return estado.locales === '3 o más' ? 3 : parseInt(estado.locales, 10) || 1;
   }
 
-  /** Primera llave a precio pleno; cada llave extra del mismo comercio, al 50%. */
   function precioTotal(n) {
-    return PRECIO_ANUAL + (n - 1) * (PRECIO_ANUAL / 2);
+    return PRECIO_UNICO + (n - 1) * PRECIO_PC_EXTRA;
   }
 
-  /** Lo mismo, pero para el que prefiere ir mes a mes. */
-  function precioMensual(n) {
-    return PRECIO_MENSUAL + (n - 1) * (PRECIO_MENSUAL / 2);
+  /** "$140.000 una sola vez" + el desglose, si son varias computadoras. */
+  function desglose(n) {
+    return n > 1 ? ' (' + n + ' computadoras: la primera ' + pesos(PRECIO_UNICO) +
+      ' y cada una más ' + pesos(PRECIO_PC_EXTRA) + ')' : '';
   }
 
-  /** "$320.000 por año, o $35.000 por mes" + los locales, si son varios. */
   function detallePlan(n) {
-    return pesos(precioTotal(n)) + ' por año, o ' + pesos(precioMensual(n)) + ' por mes' +
-      (n > 1 ? ' (' + n + ' locales, 2ª llave al 50%)' : '');
+    return pesos(precioTotal(n)) + ' una sola vez' + desglose(n);
   }
 
   function resumenTexto() {
@@ -294,7 +291,7 @@
     var l = [
       prueba ? 'Hola! Quiero probar DASHBOX 👋' : 'Hola! Quiero DASHBOX 👋', '',
       prueba
-        ? '• Quiero: la versión de prueba (7 días con el programa completo, sin tarjeta)'
+        ? '• Quiero: verlo andando antes de comprarlo (que me lo dejen instalado con mis productos)'
         : '• Programa: DASHBOX completo — ' + detallePlan(n),
       prueba
         ? '• Después, el programa completo: ' + detallePlan(n)
@@ -303,7 +300,7 @@
         ? (prueba ? 'Me interesa — ' : 'Sí — ') + pesos(PRECIO_NUBE) + '/mes'
         : 'No por ahora'),
       '• Rubro: ' + estado.rubro,
-      '• Locales: ' + estado.locales,
+      '• Computadoras: ' + estado.locales,
       '• Para cuándo: ' + estado.cuando,
       '', 'Mis datos:',
       '• Nombre: ' + estado.nombre,
@@ -319,7 +316,7 @@
     var filas = [
       ['Qué querés', prueba ? 'Probar DASHBOX antes de comprarlo' : 'DASHBOX completo'],
       ['Nube', estado.nube ? (prueba ? 'Me interesa' : 'Sí, la sumo') : 'No por ahora'],
-      ['Negocio', estado.rubro + ' · ' + estado.locales + (estado.locales === '1' ? ' local' : ' locales')],
+      ['Negocio', estado.rubro + ' · ' + estado.locales + (estado.locales === '1' ? ' computadora' : ' computadoras')],
       ['Cuándo', estado.cuando],
       ['Nombre', estado.nombre],
       ['WhatsApp', estado.tel],
@@ -330,17 +327,14 @@
       return '<dt>' + f[0] + '</dt><dd>' + f[1].replace(/</g, '&lt;') + '</dd>';
     }).join('');
     var n = cantLocales();
-    var alternativa = '<small>O ' + pesos(precioMensual(n)) + ' por mes, si preferís ir mes a mes</small>';
     var total;
     if (prueba) {
-      // La prueba no se cobra, pero el precio del programa va igual: que nadie
-      // llegue a WhatsApp creyendo que DASHBOX es gratis.
-      total = '$0 <small>prueba de 7 días con el programa completo</small>' +
-        '<small>Después: ' + pesos(precioTotal(n)) + ' por año' +
-        (n > 1 ? ' (' + n + ' locales, 2ª llave al 50%)' : '') + '</small>' + alternativa;
+      // Verlo andando no se cobra, pero el precio del programa va igual: que
+      // nadie llegue a WhatsApp creyendo que DASHBOX es gratis.
+      total = '$0 <small>lo ves andando en tu comercio antes de pagar</small>' +
+        '<small>Después: ' + detallePlan(n) + '</small>';
     } else {
-      total = pesos(precioTotal(n)) + ' <small>por año' +
-        (n > 1 ? ' (' + n + ' locales, 2ª llave al 50%)' : '') + '</small>' + alternativa;
+      total = pesos(precioTotal(n)) + ' <small>una sola vez' + desglose(n) + '</small>';
       if (estado.nube) total += '<small>+ ' + pesos(PRECIO_NUBE) + '/mes de dashboard</small>';
     }
     wiz.querySelector('#wiz-total').innerHTML = total;

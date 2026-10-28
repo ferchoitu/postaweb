@@ -34,44 +34,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <section class="wrap" style="max-width:720px; padding-top:56px; padding-bottom:80px">
-  <span class="eyebrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg><span id="chip">Compra recibida</span></span>
+  <span class="eyebrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg><span id="chip">Verificando tu pago…</span></span>
   <h1 id="titulo" style="font-size:clamp(30px,5vw,44px); margin-top:12px">¡Gracias por comprar <span id="np">DASHBOX</span>!</h1>
 
-  <!-- Compra con VOUCHER (desde la web, sin código de equipo) -->
-  <div id="modo-voucher" style="display:none">
-    <p class="lead" style="margin-top:14px" id="bajada-voucher"><b>Abajo está tu descarga.</b> Y éste es tu <b>código de compra</b>: <b>guardalo</b> (sacale una foto, mandátelo por WhatsApp, lo que sea) — te lo vamos a pedir si alguna vez necesitás soporte o reinstalar.</p>
-    <div style="margin-top:18px; background:var(--paper-2); border:2px solid var(--amber); border-radius:var(--r); padding:26px; text-align:center">
-      <div id="voucher" class="mono" style="font-size:clamp(26px,6vw,40px); font-weight:700; letter-spacing:.06em; user-select:all">—</div>
-      <button id="copiar" class="btn amber" style="margin-top:16px; cursor:pointer; border:0">Copiar el código</button>
-      <div id="copiado" style="display:none; margin-top:10px; color:var(--green); font-weight:700; font-size:14px">¡Copiado!</div>
-    </div>
-    <div id="pendiente" style="display:none; margin-top:14px; background:#FDF3E3; border:1px solid #E8CC9C; border-radius:var(--r); padding:14px 18px; font-size:14.5px">
-      Tu pago figura <b>pendiente de acreditación</b> (pasa con algunos medios de pago). El código ya es tuyo: apenas se acredite, va a funcionar solo.
-    </div>
+  <!-- Mientras /api/verificar consulta a Mercado Pago -->
+  <div id="modo-verificando">
+    <p class="lead" style="margin-top:14px">Estamos confirmando el pago con Mercado Pago. Tarda unos segundos.</p>
+  </div>
+
+  <!-- Pago aprobado: la descarga -->
+  <div id="modo-aprobado" style="display:none">
+    <p class="lead" style="margin-top:14px"><b>Tu pago está aprobado.</b> Abajo está tu descarga. Guardá esta página o el comprobante de Mercado Pago: con eso te reenviamos el link si alguna vez tenés que reinstalar.</p>
     <div style="margin-top:22px; background:var(--paper-2); border:2px solid var(--amber); border-radius:var(--r); padding:16px 20px">
       <div class="mono" style="font-size:12.5px; color:var(--amber-ink); font-weight:700; letter-spacing:.14em">TU DESCARGA</div>
-      <p style="margin:6px 0 0; font-size:14.5px"><b>1.</b> <a id="link-descarga" href="/instalador" target="_blank" rel="noopener" style="color:var(--green); font-weight:700">Descargá e instalá el programa</a> en la compu del mostrador (si ya lo tenés, salteá este paso).<br/>
+      <p style="margin:6px 0 0; font-size:14.5px"><b>1.</b> <a id="link-descarga" href="#" target="_blank" rel="noopener" style="color:var(--green); font-weight:700">Descargá e instalá el programa</a> en la computadora del mostrador.<br/>
       <b>2.</b> Windows puede avisarte que «protegió tu equipo» porque el programa es nuevo: tocá <b>«Más información»</b> → <b>«Ejecutar de todas formas»</b>.<br/>
-      <b id="paso-3">3.</b> <span id="texto-paso-3">Listo, ya podés vender. <b>No hay nada que activar</b> y no vence nunca.</span></p>
-      <p style="margin:10px 0 0; font-size:13px; color:var(--ink-faint)">Guardá este link: es el mismo que usás si alguna vez tenés que reinstalar. Si lo perdés, escribinos por WhatsApp.</p>
+      <b>3.</b> Listo, ya podés vender. <b>No hay nada que activar</b> y no vence nunca.</p>
+    </div>
+    <div style="margin-top:14px; background:var(--paper-2); border:1px solid var(--line); border-radius:var(--r); padding:16px 20px; font-size:14.5px">
+      ¿Querés que te lo dejemos andando con tus productos, el lector y la impresora? Escribinos por WhatsApp y lo hacemos juntos.
     </div>
   </div>
 
-  <!-- Compra con DEVICE (desde el programa o /comprar con código de equipo) -->
-  <div id="modo-device" style="display:none">
-    <p class="lead" style="margin-top:14px"><b>No tenés que hacer nada más.</b> Tu compra quedó registrada y el programa que ya tenés instalado sigue andando igual: no hay nada que activar ni que renovar.</p>
-    <div style="margin-top:18px; background:var(--paper-2); border:1px solid var(--line); border-radius:var(--r); padding:16px 20px; font-size:14.5px">
-      ¿Necesitás el instalador de nuevo, o querés que te demos una mano con la puesta a punto? Escribinos y lo resolvemos en el momento.
-    </div>
+  <!-- Pago pendiente (Rapipago, Pago Fácil, transferencia en revisión) -->
+  <div id="modo-pendiente" style="display:none">
+    <p class="lead" style="margin-top:14px">Tu pago figura <b>pendiente de acreditación</b>. Pasa con algunos medios de pago. Apenas se acredite, escribinos por WhatsApp con el comprobante y te pasamos la descarga en el momento.</p>
   </div>
 
-  <!-- Sin datos en la URL -->
+  <!-- Sin pago válido en la URL, rechazado o no se pudo verificar -->
   <div id="modo-generico" style="display:none">
-    <p class="lead" style="margin-top:14px">Tu pago fue recibido. El link de descarga apareció en la pantalla anterior — si lo perdiste, escribinos por WhatsApp con tu comprobante y te lo pasamos al toque.</p>
+    <p class="lead" style="margin-top:14px" id="texto-generico">No pudimos confirmar el pago desde esta página. Si ya pagaste, escribinos por WhatsApp con el comprobante de Mercado Pago y te pasamos la descarga en el momento.</p>
   </div>
 
   <div class="cta-row" style="margin-top:26px">
-    <a class="btn ghost" href="https://wa.me/5492226482316?text=Hola!%20Acabo%20de%20comprar%20DASHBOX%20y%20tengo%20una%20consulta" target="_blank" rel="noopener">¿Algo no salió como esperabas? Escribinos</a>
+    <a class="btn ghost" id="link-wa" href="https://wa.me/5492226482316?text=Hola!%20Acabo%20de%20comprar%20DASHBOX%20y%20tengo%20una%20consulta" target="_blank" rel="noopener">¿Algo no salió como esperabas? Escribinos</a>
   </div>
 </section>
 
@@ -84,51 +80,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 (function () {
-  // Mercado Pago vuelve con ?external_reference=voucher:producto:CODIGO (o
-  // unico:producto:DEVICE) + collection_status/status. De ahí sale todo.
+  // Mercado Pago vuelve con ?payment_id&status&external_reference. Nada de la
+  // URL se cree: /api/verificar le pregunta a MP si el pago existe, es de esta
+  // web, está aprobado y es por el precio completo. Recién ahí aparece la
+  // descarga y se le avisa la compra a Ads y a Meta, una sola vez por pago.
   var p = new URLSearchParams(location.search);
-  var ref = p.get('external_reference') || '';
-  var status = p.get('collection_status') || p.get('status') || '';
-  var partes = ref.split(':');
-  var tipo = partes[0];
-  var producto = partes[1] === 'gastro' ? 'gastro' : 'dashbox';
-
-  if (producto === 'gastro') {
+  var pagoId = p.get('payment_id') || p.get('collection_id') || '';
+  var ref = (p.get('external_reference') || '').split(':');
+  var esGastro = ref[1] === 'gastro';
+  if (esGastro) {
     document.getElementById('np').textContent = 'DASHBOX Gastro';
-    var d = document.getElementById('link-descarga');
-    if (d) d.href = '/instalador-gastro';
-    // ⚠️ Gastro TODAVÍA tiene licencia en el programa (a Stock se le sacó el
-    // 2026-09-22). Hasta que se le haga el mismo trabajo, su paso 3 sigue
-    // siendo pegar el código — y la llave que se le emite va `--perpetua`,
-    // porque el precio que pagó dice "una sola vez". Ver
-    // docs/comercial/precios-y-oferta.md en la carpeta matriz.
-    var bv = document.getElementById('bajada-voucher');
-    if (bv) bv.innerHTML = 'Éste es tu <b>código de compra</b>: es el que <b>activa el programa</b>, así que <b>guardalo</b> (sacale una foto, mandátelo por WhatsApp, lo que sea).';
-    var p3 = document.getElementById('texto-paso-3');
-    if (p3) p3.innerHTML = 'Abrilo, andá a <b>Config \u2192 Licencia</b> y <b>pegá el código de arriba</b>. Queda activado para siempre.';
+    document.getElementById('link-wa').href =
+      'https://wa.me/5492226482316?text=' + encodeURIComponent('Hola! Acabo de comprar DASHBOX Gastro y tengo una consulta');
   }
 
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: 'compra_confirmada', producto: producto, modo: tipo || 'desconocido', estado: status });
-
-  if (tipo === 'voucher' && partes[2]) {
-    document.getElementById('modo-voucher').style.display = 'block';
-    document.getElementById('voucher').textContent = partes[2];
-    if (status && status !== 'approved') {
-      document.getElementById('pendiente').style.display = 'block';
-      document.getElementById('chip').textContent = 'Pago pendiente de acreditación';
-    }
-    document.getElementById('copiar').addEventListener('click', function () {
-      navigator.clipboard.writeText(partes[2]).then(function () {
-        document.getElementById('copiado').style.display = 'block';
-      });
+  function mostrar(modo, chip) {
+    ['verificando', 'aprobado', 'pendiente', 'generico'].forEach(function (m) {
+      document.getElementById('modo-' + m).style.display = m === modo ? 'block' : 'none';
     });
-  } else if (tipo === 'unico') {
-    document.getElementById('modo-device').style.display = 'block';
-  } else {
-    document.getElementById('modo-generico').style.display = 'block';
+    document.getElementById('chip').textContent = chip;
   }
+
+  function avisarCompra(r) {
+    var clave = 'dbx-compra-' + pagoId;
+    try { if (localStorage.getItem(clave)) return; localStorage.setItem(clave, '1'); } catch (e) {}
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'compra_confirmada', transaction_id: pagoId, value: r.monto, currency: 'ARS', producto: r.producto
+      });
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'purchase', {
+          transaction_id: pagoId, value: r.monto, currency: 'ARS', items: [{ item_id: r.producto }]
+        });
+      }
+    } catch (e) { /* que un error de medición nunca tape la descarga */ }
+  }
+
+  if (!/^\d{6,20}$/.test(pagoId)) {
+    if (p.get('status') === 'pending' || p.get('collection_status') === 'pending') mostrar('pendiente', 'Pago pendiente');
+    else mostrar('generico', 'Compra');
+    return;
+  }
+
+  fetch('/api/verificar?payment_id=' + encodeURIComponent(pagoId))
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function (r) {
+      if (r.producto === 'gastro') document.getElementById('np').textContent = 'DASHBOX Gastro';
+      if (r.estado === 'aprobado' && r.descarga) {
+        document.getElementById('link-descarga').href = r.descarga;
+        mostrar('aprobado', 'Compra confirmada');
+        avisarCompra(r);
+      } else if (r.estado === 'pendiente') {
+        mostrar('pendiente', 'Pago pendiente');
+      } else {
+        document.getElementById('texto-generico').textContent =
+          'Mercado Pago no aprobó este pago, así que no se te cobró. Podés intentarlo de nuevo desde la página de compra o escribirnos por WhatsApp.';
+        mostrar('generico', 'Pago no aprobado');
+      }
+    })
+    .catch(function () { mostrar('generico', 'Compra'); });
 })();
 </script>
+<script src="/medicion.js" defer></script>
 </body>
 </html>
